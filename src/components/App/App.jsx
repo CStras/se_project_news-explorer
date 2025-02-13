@@ -1,9 +1,10 @@
 import "./App.css";
+import Main from "../Main/Main.jsx";
 
 function App() {
   return (
-    <div>
-      <h1>Hello</h1>
+    <div className="app_content">
+      <Main />
     </div>
   );
 }

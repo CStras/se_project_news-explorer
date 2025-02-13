@@ -1,0 +1,10 @@
+.nav__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__links_item {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+}
