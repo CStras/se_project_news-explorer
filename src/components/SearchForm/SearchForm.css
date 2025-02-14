@@ -1,0 +1,37 @@
+.search {
+    padding: 88px 0 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.search__form {
+    position: relative;
+    font-family: "Roboto Reg";
+}
+
+.search__input {
+    border: none;
+    border-radius: 100px;
+    width: 608px;
+    height: 64px;
+    color: rgba(182, 188, 191, 1);
+    padding: 0 0 0 24px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.search__button {
+    background: rgba(47, 113, 229, 1);
+    width: 168px;
+    height: 64px;
+    border-radius: 100px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 0;
+    position: absolute;
+    right: 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+}

@@ -5,7 +5,7 @@ import SearchForm from "../SearchForm/SearchForm.jsx";
 function Header() {
   return (
     <header className="header">
-      <div className="nav">
+      <div className="header__nav">
         <Nav />
       </div>
       <div className="header__content">
@@ -15,7 +15,7 @@ function Header() {
           account.
         </p>
       </div>
-      <div className="search">
+      <div className="search-form">
         <SearchForm />
       </div>
     </header>

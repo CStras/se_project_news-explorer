@@ -1,6 +1,36 @@
 .about {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
+    gap: 56px;
+    padding: 80px 216px 80px 104px;
+}
+
+.about__image-container {
+    width: 464px;
+    height: 464px;
+}
+
+.about__image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.about__content {
+    margin: 51px 0 0 0;
+}
+
+.about__title {
+    font-family: "Roboto-slab Regular";
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 46px;
+    color: rgba(26, 27, 34, 1);
+    margin: 0;
+}
+
+.about__text {
+    margin: 24px 0 0 0;
 }
