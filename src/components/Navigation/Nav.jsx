@@ -1,7 +1,7 @@
 import "./Nav.css";
 import { Link } from "react-router-dom";
 
-function Nav() {
+function Nav({ handleLogin }) {
   return (
     <nav className="nav__content">
       <p className="nav__logo">NewsExplorer</p>
@@ -11,7 +11,9 @@ function Nav() {
             Home
           </Link>
         </div>
-        <button className="nav__signup-btn">Sign in</button>
+        <button onClick={handleLogin} className="nav__signup-btn">
+          Sign in
+        </button>
       </div>
     </nav>
   );
