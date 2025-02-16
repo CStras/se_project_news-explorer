@@ -1,0 +1,22 @@
+.saved-news__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 0 56px 104px;
+}
+
+.saved-news__subtitle {
+    margin: 0 0 28px;
+    color: rgba(26, 27, 34, 0.5);
+    font-family: "Roboto Reg";
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.saved-news__title {
+    margin: 0 0 30px;
+    font-family: "Roboto-slab Regular";
+    font-size: 40px;
+    line-height: 46px;
+    color: rgba(26, 27, 34, 1);
+}

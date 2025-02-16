@@ -11,10 +11,9 @@ const LoginModal = ({
     <ModalWithForm
       titleText="Log in"
       closeActiveModal={closeActiveModal}
-      onSubmit={handleSubmit}
       isOpen={isOpen}
       firstBtnText="Log in"
-      secondBtnText="or Sign up"
+      secondBtnText=" Sign up"
       secondBtnClick={() => setActiveModal("register")}
     >
       <label className="modal__label" htmlFor="email">

@@ -11,10 +11,9 @@ const RegisterModal = ({
     <ModalWithForm
       titleText="Sign up"
       closeActiveModal={closeActiveModal}
-      handleSubmit={handleSubmit}
       isOpen={isOpen}
       firstBtnText="Sign up"
-      secondBtnText="or Log in"
+      secondBtnText=" Log in"
       secondBtnClick={() => setActiveModal("login")}
     >
       <label className="modal__label" htmlFor="email">
@@ -38,7 +37,7 @@ const RegisterModal = ({
         />
       </label>
       <label className="modal__label" htmlFor="name">
-        Name
+        Username
         <input
           className="modal__input"
           type="text"

@@ -16,7 +16,7 @@ function App() {
     avatar: "",
     _id: "",
   });
-  const [isLoggedin, setIsLoggedin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [activeModal, setActiveModal] = useState("");
 
   const handleLogin = () => {
@@ -53,12 +53,17 @@ function App() {
       <CurrentUserContext.Provider value={currentUser}>
         <div className="app_content">
           <Routes>
-            <Route path="/" element={<Main handleLogin={handleLogin} />} />
+            <Route
+              path="/"
+              element={
+                <Main handleLogin={handleLogin} isLoggedIn={isLoggedIn} />
+              }
+            />
             <Route
               path="/saved-news"
               element={
-                <ProtectedRoute isLoggedIn={isLoggedin}>
-                  <SavedNews />
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <SavedNews isLoggedIn={isLoggedIn} />
                 </ProtectedRoute>
               }
             />

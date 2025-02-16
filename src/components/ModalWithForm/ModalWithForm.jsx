@@ -5,11 +5,15 @@ function ModalWithForm({
   titleText,
   closeActiveModal,
   isOpen,
-  onSubmit,
   secondBtnClick,
   firstBtnText,
   secondBtnText,
 }) {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onSubmit();
+  };
+
   return (
     <div className={`modal ${isOpen && "modal_open"}`}>
       <div className="modal__content">
@@ -19,9 +23,9 @@ function ModalWithForm({
           type="button"
           className="modal__close"
         />
-        <form className="modal__form" onSubmit={onSubmit}>
+        <form className="modal__form" onSubmit={handleSubmit}>
           {children}
-          <div className="modal__next-btn">
+          <div className="modal__next-btns">
             {firstBtnText && (
               <button className="modal__submit" type="submit">
                 {firstBtnText}
@@ -33,6 +37,7 @@ function ModalWithForm({
                 type="button"
                 onClick={secondBtnClick}
               >
+                <span className="modal__alt-text">or</span>
                 {secondBtnText}
               </button>
             )}

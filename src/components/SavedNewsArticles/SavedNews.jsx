@@ -1,11 +1,21 @@
 import "./SavedNews.css";
+import Nav from "../Navigation/Nav.jsx";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../context/currentUserContext.js";
 
-function SavedNews() {
+function SavedNews({ isLoggedIn }) {
+  const { currentUser } = useContext(CurrentUserContext);
   return (
-    <div className="saved_news">
-      <h2 className="saved_news_title">Saved articles</h2>
-      <p className="saved_news_subtitle">You have 5 saved articles</p>
-    </div>
+    <>
+      <div className="saved__nav">
+        <Nav isLoggedIn={isLoggedIn} />
+      </div>
+      <div className="saved-news__content">
+        <p className="saved-news__subtitle">Saved articles</p>
+        <h1 className="saved-news__title">Colin, you have 5 saved articles</h1>
+        <p>By keywords: asdfas,asdfasd,asdfasdf,asdfasd</p>
+      </div>
+    </>
   );
 }
 
