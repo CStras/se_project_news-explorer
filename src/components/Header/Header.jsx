@@ -2,7 +2,7 @@ import "./Header.css";
 import Nav from "../Navigation/Nav.jsx";
 import SearchForm from "../SearchForm/SearchForm.jsx";
 
-function Header({ handleLogin, isLoggedIn, handleSearch }) {
+function Header({ handleLogin, isLoggedIn, handleSearch, setCurrentKey }) {
   return (
     <header className="header">
       <div className="header__nav">
@@ -16,7 +16,7 @@ function Header({ handleLogin, isLoggedIn, handleSearch }) {
         </p>
       </div>
       <div className="search-form">
-        <SearchForm handleSearch={handleSearch} />
+        <SearchForm handleSearch={handleSearch} setCurrentKey={setCurrentKey} />
       </div>
     </header>
   );

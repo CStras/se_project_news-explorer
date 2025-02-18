@@ -2,7 +2,7 @@ import "./App.css";
 import Main from "../Main/Main.jsx";
 import Footer from "../Footer/Footer.jsx";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
-import SavedNews from "../SavedNewsArticles/SavedNews.jsx";
+import SavedNews from "../SavedNews/SavedNews.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import { useState, useEffect } from "react";
@@ -16,11 +16,18 @@ function App() {
     avatar: "",
     _id: "",
   });
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeModal, setActiveModal] = useState("");
+  const [currentKey, setCurrentKey] = useState("");
 
-  const handleLogin = () => {
+  const handleLoginClick = () => {
     setActiveModal("login");
+  };
+
+  const handleLogin = (values, resetForm) => {
+    if (!values) {
+      return;
+    }
   };
 
   const closeActiveModal = () => {
@@ -56,7 +63,11 @@ function App() {
             <Route
               path="/"
               element={
-                <Main handleLogin={handleLogin} isLoggedIn={isLoggedIn} />
+                <Main
+                  handleLogin={handleLoginClick}
+                  isLoggedIn={isLoggedIn}
+                  setCurrentKey={setCurrentKey}
+                />
               }
             />
             <Route
@@ -73,6 +84,7 @@ function App() {
               setActiveModal={setActiveModal}
               closeActiveModal={closeActiveModal}
               isOpen={activeModal === "login"}
+              handleLogin={handleLogin}
             />
           )}
           {activeModal === "register" && (
