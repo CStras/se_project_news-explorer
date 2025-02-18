@@ -7,18 +7,18 @@ import LoginModal from "../LoginModal/LoginModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import { useState, useEffect } from "react";
 import { CurrentUserContext } from "../../context/currentUserContext.js";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
-    name: "",
     email: "",
-    avatar: "",
-    _id: "",
+    password: "",
+    username: "",
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeModal, setActiveModal] = useState("");
   const [currentKey, setCurrentKey] = useState("");
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
     setActiveModal("login");
@@ -28,6 +28,27 @@ function App() {
     if (!values) {
       return;
     }
+
+    setIsLoggedIn(true);
+    closeActiveModal();
+    resetForm();
+    navigate("/");
+  };
+
+  const handleRegister = (values, resetForm) => {
+    if (!values) {
+      return;
+    }
+
+    setCurrentUser({
+      email: values.email,
+      password: values.password,
+      username: values.name,
+    });
+    setIsLoggedIn(true);
+    closeActiveModal();
+    resetForm();
+    navigate("/");
   };
 
   const closeActiveModal = () => {
@@ -92,6 +113,7 @@ function App() {
               setActiveModal={setActiveModal}
               closeActiveModal={closeActiveModal}
               isOpen={activeModal === "register"}
+              handleRegister={handleRegister}
             />
           )}
           <Footer />

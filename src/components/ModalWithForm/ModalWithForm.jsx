@@ -8,6 +8,7 @@ function ModalWithForm({
   secondBtnClick,
   firstBtnText,
   secondBtnText,
+  onSubmit,
 }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();

@@ -5,8 +5,17 @@ const RegisterModal = ({
   isOpen,
   setActiveModal,
   closeActiveModal,
-  handleSubmit,
+  handleRegister,
 }) => {
+  const handleSubmit = (evt) => {
+    const { email, password, name } = evt.target.elements;
+    handleRegister({
+      email: email.value,
+      password: password.value,
+      name: name.value,
+    });
+  };
+
   return (
     <ModalWithForm
       titleText="Sign up"
@@ -15,6 +24,7 @@ const RegisterModal = ({
       firstBtnText="Sign up"
       secondBtnText=" Log in"
       secondBtnClick={() => setActiveModal("login")}
+      onSubmit={handleSubmit}
     >
       <label className="modal__label" htmlFor="email">
         Email

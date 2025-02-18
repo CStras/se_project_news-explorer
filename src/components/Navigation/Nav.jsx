@@ -45,7 +45,7 @@ function Nav({ handleLogin, isLoggedIn }) {
                   : "nav__profile-btn"
               }
             >
-              <span className="nav__profile-btn_text">asdfasdf</span>
+              <span className="nav__profile-btn_text">{currentUser.name}</span>
               <img src={location.pathname === "/" ? logoutWhite : logout} />
             </button>
           </>
