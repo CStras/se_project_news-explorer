@@ -1,6 +1,11 @@
 import "./SearchForm.css";
 
-function SearchForm() {
+function SearchForm({ handleSearch }) {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    handleSearch(evt);
+  };
+
   return (
     <div className="search">
       <form className="search__form">
