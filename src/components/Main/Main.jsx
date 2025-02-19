@@ -1,18 +1,35 @@
 import "./Main.css";
 import Header from "../Header/Header.jsx";
-import NewsCard from "../NewsCard/NewsCard.jsx";
+import NewsCardList from "../NewsCardList/NewsCardList.jsx";
 import About from "../About/About.jsx";
 
-function Main({ handleLogin, isLoggedIn, handleSearch, setCurrentKey }) {
+function Main({
+  handleLogin,
+  isLoggedIn,
+  handleSearch,
+  setCurrentKeyword,
+  newsData,
+  isSuccessNewsData,
+  isError,
+  isLoadingNewsData,
+  setActiveModal,
+}) {
   return (
     <div className="main_content">
       <Header
         handleLogin={handleLogin}
         isLoggedIn={isLoggedIn}
         handleSearch={handleSearch}
-        setCurrentKey={setCurrentKey}
+        setCurrentKeyword={setCurrentKeyword}
       />
-      <NewsCard />
+      <NewsCardList
+        newsData={newsData}
+        isSuccessNewsData={isSuccessNewsData}
+        isError={isError}
+        isLoadingNewsData={isLoadingNewsData}
+        setActiveModal={setActiveModal}
+        isLoggedIn={isLoggedIn}
+      />
       <About />
     </div>
   );

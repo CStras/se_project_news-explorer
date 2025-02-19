@@ -1,4 +1,4 @@
-import checkRes from "./utils";
+import { checkRes } from "./utils";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
