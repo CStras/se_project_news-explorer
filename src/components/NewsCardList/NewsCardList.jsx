@@ -33,6 +33,7 @@ function NewsCardList({
           : "news-cards-list"
       }
     >
+      <h2 className="news-cards-list__title">Search Results</h2>
       <div
         className={
           emptyNewsDataArray
@@ -50,11 +51,12 @@ function NewsCardList({
           Sorry, but nothing matched your search terms.
         </p>
       </div>
+
       <div className={isLoadingNewsData ? "preloader" : "preloader_hidden"}>
         <Preloader />
         <h3 className="preloader__text">Searching for news...</h3>
       </div>
-      <h2 className="news-cards-list__title">Search Results</h2>
+
       <div className="news-cards-list__grid">
         <ul className="news-cards-list__cards">
           {activeNewsDataItems.map((newsItem) => (

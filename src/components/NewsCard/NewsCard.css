@@ -120,6 +120,10 @@
     border-radius: 10px;
   }
 
+  .news-card__button-container:hover .news-card__sign-in-btn {
+    visibility: visible;
+  }
+
   .news-card__save {
     border: none;
     background-color: transparent;
@@ -129,18 +133,18 @@
     right: 24px;
     height: 40px;
     width: 40px;
-    background-image: url("../../assets/save-icon.svg");
+    background-image: url("../../assets/norm-save.svg");
     background-repeat: no-repeat;
     background-size: contain;
     padding: 0;
   }
   
   .news-card__save:hover {
-    background-image: url("../../assets/save-icon-hover.svg");
+    background-image: url("../../assets/hover.svg");
   }
   
   .news-card__save_active {
-    background-image: url("../../assets/save-icon-marked.svg");
+    background-image: url("../../assets/marked.svg");
   }
 
   .news-card__btns:hover .news-card__sign-in-icon {

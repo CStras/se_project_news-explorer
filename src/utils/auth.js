@@ -1,5 +1,4 @@
-export const authorize = (email, password) => {
-  // Pretend we did a fetch request that gave us back a token
+export const loginUser = (email, password) => {
   return new Promise((resolve, reject) => {
     resolve({ token: "a fake token" });
   });
@@ -13,3 +12,19 @@ export const checkToken = (token) => {
     });
   });
 };
+
+export const createUser = ({ email, password, username }) => {
+  return new Promise((resolve, reject) => {
+    resolve({
+      data: { username, email, _id: "fake-id", password },
+    });
+  });
+};
+
+const auth = {
+  loginUser,
+  checkToken,
+  createUser,
+};
+
+export default auth;

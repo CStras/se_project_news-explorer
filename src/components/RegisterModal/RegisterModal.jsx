@@ -1,5 +1,6 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "../ModalWithForm/ModalWithForm.css";
+import { FormValidation } from "../../utils/FormValidation.js";
 
 const RegisterModal = ({
   isOpen,
@@ -7,13 +8,14 @@ const RegisterModal = ({
   closeActiveModal,
   handleRegister,
 }) => {
+  const { values, handleChange, isValid, resetForm, errors } = FormValidation();
+
+  const resetRegisterForm = () => {
+    resetForm({ email: "", password: "", username: "" });
+  };
+
   const handleSubmit = (evt) => {
-    const { email, password, name } = evt.target.elements;
-    handleRegister({
-      email: email.value,
-      password: password.value,
-      name: name.value,
-    });
+    handleRegister(values.email, values.password, values.name);
   };
 
   return (
@@ -25,6 +27,7 @@ const RegisterModal = ({
       secondBtnText=" Log in"
       secondBtnClick={() => setActiveModal("login")}
       onSubmit={handleSubmit}
+      formValid={isValid}
     >
       <label className="modal__label" htmlFor="email">
         Email
@@ -34,8 +37,18 @@ const RegisterModal = ({
           id="email"
           name="email"
           required
+          onChange={handleChange}
+          value={values.email || ""}
         />
       </label>
+      <span
+        className={`modal__input-error ${
+          errors.email ? "modal__input-error_visible" : ""
+        }`}
+        id="email-error"
+      >
+        {errors.email}
+      </span>
       <label className="modal__label" htmlFor="password">
         Password
         <input
@@ -44,8 +57,18 @@ const RegisterModal = ({
           id="password"
           name="password"
           required
+          onChange={handleChange}
+          value={values.password || ""}
         />
       </label>
+      <span
+        className={`modal__input-error ${
+          errors.password ? "modal__input-error_visible" : ""
+        }`}
+        id="password-error"
+      >
+        {errors.password}
+      </span>
       <label className="modal__label" htmlFor="name">
         Username
         <input
@@ -54,8 +77,18 @@ const RegisterModal = ({
           id="name"
           name="name"
           required
+          onChange={handleChange}
+          value={values.name || ""}
         />
       </label>
+      <span
+        className={`modal__input-error ${
+          errors.name ? "modal__input-error_visible" : ""
+        }`}
+        id="name-error"
+      >
+        {errors.name}
+      </span>
     </ModalWithForm>
   );
 };

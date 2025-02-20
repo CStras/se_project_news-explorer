@@ -7,6 +7,7 @@ import logoutWhite from "../../assets/logoutWhite.svg";
 
 function Nav({ handleLogin, isLoggedIn }) {
   const { currentUser } = useContext(CurrentUserContext);
+  console.log(currentUser);
   return (
     <nav className="nav__content">
       <p className="nav__logo">NewsExplorer</p>
@@ -45,7 +46,9 @@ function Nav({ handleLogin, isLoggedIn }) {
                   : "nav__profile-btn"
               }
             >
-              <span className="nav__profile-btn_text">{currentUser.name}</span>
+              <span className="nav__profile-btn_text">
+                {currentUser.username}
+              </span>
               <img src={location.pathname === "/" ? logoutWhite : logout} />
             </button>
           </>

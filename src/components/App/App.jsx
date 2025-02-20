@@ -12,12 +12,15 @@ import { CurrentUserContext } from "../../context/currentUserContext.js";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { apikey } from "../../utils/contant.js";
 import { ArticleContext } from "../../context/articleContext.js";
+import auth from "../../utils/auth.js";
+import { set } from "mongoose";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
     email: "",
     password: "",
     username: "",
+    _id: "",
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeModal, setActiveModal] = useState("");
@@ -29,11 +32,6 @@ function App() {
   const [isLoadingNewsData, setIsLoadingNewsData] = useState(false);
 
   const navigate = useNavigate();
-
-  const userArticleContext = {
-    userArticles,
-    setUserArticles,
-  };
 
   const handleLoginClick = () => {
     setActiveModal("login");
@@ -48,26 +46,36 @@ function App() {
       return;
     }
 
-    setIsLoggedIn(true);
-    closeActiveModal();
-    resetForm();
-    navigate("/");
-  };
-
-  const handleRegister = (values, resetForm) => {
-    if (!values) {
-      return;
-    }
+    const name = values.email.split("@")[0];
+    console.log(name);
 
     setCurrentUser({
       email: values.email,
       password: values.password,
-      username: values.name,
+      username: name,
     });
+    console.log(currentUser);
+
     setIsLoggedIn(true);
     closeActiveModal();
-    resetForm();
+
     navigate("/");
+  };
+
+  const handleRegister = (email, password, username) => {
+    auth
+      .createUser({ email, password, username })
+      .then((data) => {
+        setCurrentUser(data.data);
+        console.log(data.data);
+        console.log(currentUser);
+        setIsLoggedIn(true);
+        closeActiveModal();
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleSearch = () => {
@@ -117,53 +125,51 @@ function App() {
   return (
     <div className="app">
       <CurrentUserContext.Provider value={currentUser}>
-        <ArticleContext.Provider value={userArticleContext}>
-          <div className="app_content">
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <Main
-                    handleLogin={handleLoginClick}
-                    isLoggedIn={isLoggedIn}
-                    setCurrentKeyword={setCurrentKeyword}
-                    handleSearch={handleSearch}
-                    newsData={newsData}
-                    isSuccessNewsData={isSuccessNewsData}
-                    isError={isError}
-                    isLoadingNewsData={isLoadingNewsData}
-                    setActiveModal={setActiveModal}
-                  />
-                }
-              />
-              <Route
-                path="/saved-news"
-                element={
-                  <ProtectedRoute isLoggedIn={isLoggedIn}>
-                    <SavedNews isLoggedIn={isLoggedIn} />
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
-            {activeModal === "login" && (
-              <LoginModal
-                setActiveModal={setActiveModal}
-                closeActiveModal={closeActiveModal}
-                isOpen={activeModal === "login"}
-                handleLogin={handleLogin}
-              />
-            )}
-            {activeModal === "register" && (
-              <RegisterModal
-                setActiveModal={setActiveModal}
-                closeActiveModal={closeActiveModal}
-                isOpen={activeModal === "register"}
-                handleRegister={handleRegister}
-              />
-            )}
-            <Footer />
-          </div>
-        </ArticleContext.Provider>
+        <div className="app_content">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  handleLogin={handleLoginClick}
+                  isLoggedIn={isLoggedIn}
+                  setCurrentKeyword={setCurrentKeyword}
+                  handleSearch={handleSearch}
+                  newsData={newsData}
+                  isSuccessNewsData={isSuccessNewsData}
+                  isError={isError}
+                  isLoadingNewsData={isLoadingNewsData}
+                  setActiveModal={setActiveModal}
+                />
+              }
+            />
+            <Route
+              path="/saved-news"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <SavedNews isLoggedIn={isLoggedIn} />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+          {activeModal === "login" && (
+            <LoginModal
+              setActiveModal={setActiveModal}
+              closeActiveModal={closeActiveModal}
+              isOpen={activeModal === "login"}
+              handleLogin={handleLogin}
+            />
+          )}
+          {activeModal === "register" && (
+            <RegisterModal
+              setActiveModal={setActiveModal}
+              closeActiveModal={closeActiveModal}
+              isOpen={activeModal === "register"}
+              handleRegister={handleRegister}
+            />
+          )}
+          <Footer />
+        </div>
       </CurrentUserContext.Provider>
     </div>
   );
