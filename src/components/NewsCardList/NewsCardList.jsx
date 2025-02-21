@@ -20,7 +20,6 @@ function NewsCardList({
     !isError &&
     !isLoadingNewsData;
   const emptyNewsDataArray = newsData.length === 0 && isSuccessNewsData;
-
   const handleOnClick = () => {
     setActiveNewsDataLength((num) => num + 3);
   };

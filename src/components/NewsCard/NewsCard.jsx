@@ -1,20 +1,17 @@
 import "./NewsCard.css";
 import { useLocation, Link } from "react-router-dom";
 import { useState, useContext } from "react";
-import { stubbedSavedNewsList } from "../../utils/SavedArticlesList";
+import stubbedSavedNewsList from "../../utils/SavedArticlesList";
 
 function NewsCard({ newsItem, isLoggedIn, setActiveModal }) {
   const location = useLocation();
-  const [isClicked, setIsClicked] = useState(false);
 
   const source =
     location.pathname === "/"
-      ? newsItem.source.name.toUpperCase().split(".")[0]
-      : newsItem.source.toUpperCase().split(".")[0];
+      ? newsItem.source?.name.toUpperCase().split(".")[0]
+      : "UNKNOWN";
 
-  const dateInWords = new Date(
-    location.pathname === "/" ? newsItem.publishedAt : newsItem.date
-  ).toLocaleString("default", {
+  const dateInWords = new Date(newsItem.publishedAt).toLocaleString("default", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -63,7 +60,7 @@ function NewsCard({ newsItem, isLoggedIn, setActiveModal }) {
         </div>
         <img
           className="news-card__image"
-          src={location.pathname === "/" ? newsItem.urlToImage : newsItem.image}
+          src={newsItem.urlToImage}
           alt="News Image"
         />
       </div>

@@ -8,23 +8,19 @@ import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import { getNews } from "../../utils/api.js";
 import { getLastWeeksDate, getCurrentDate } from "../../utils/FindDate.js";
 import { useState, useEffect } from "react";
-import { CurrentUserContext } from "../../context/currentUserContext.js";
+import CurrentUserContext from "../../context/currentUserContext";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { apikey } from "../../utils/contant.js";
-import { ArticleContext } from "../../context/articleContext.js";
 import auth from "../../utils/auth.js";
-import { set } from "mongoose";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
     email: "",
     password: "",
     username: "",
-    _id: "",
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeModal, setActiveModal] = useState("");
-  const [userArticles, setUserArticles] = useState([]);
   const [currentKeyword, setCurrentKeyword] = useState("");
   const [isSuccessNewsData, setIsSuccessNewsData] = useState(false);
   const [newsData, setNewsData] = useState([]);
@@ -46,20 +42,33 @@ function App() {
       return;
     }
 
-    const name = values.email.split("@")[0];
-    console.log(name);
+    const email = values.email;
+    const password = values.password;
+    console.log(email);
+    console.log(password);
 
-    setCurrentUser({
-      email: values.email,
-      password: values.password,
-      username: name,
-    });
+    auth
+      .loginUser({ email, password })
+      .then((data) => {
+        console.log(data);
+
+        if (data) {
+          localStorage.setItem("token", data);
+          auth.checkToken(data).then((data) => {
+            console.log(data);
+            setCurrentUser(data);
+            console.log(currentUser);
+            setIsLoggedIn(true);
+            console.log(isLoggedIn);
+            closeActiveModal();
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     console.log(currentUser);
-
-    setIsLoggedIn(true);
-    closeActiveModal();
-
-    navigate("/");
+    console.log(isLoggedIn);
   };
 
   const handleRegister = (email, password, username) => {
@@ -83,11 +92,6 @@ function App() {
       setIsSuccessNewsData(true);
       return;
     }
-
-    setNewsData([]);
-    setIsLoadingNewsData(true);
-    setIsSuccessNewsData(false);
-    setIsError(false);
 
     getNews(currentKeyword, apikey, getLastWeeksDate(), getCurrentDate())
       .then((data) => {
@@ -121,6 +125,24 @@ function App() {
       document.removeEventListener("click", handleModalClose);
     };
   }, [activeModal]);
+
+  /* useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      auth
+        .checkToken(token)
+        .then((res) => {
+          setCurrentUser(res);
+          setIsLoggedIn(true);
+          console.log(currentUser);
+        })
+        .catch((error) => {
+          console.error("Token invalid or expired:", error);
+          setIsLoggedIn(false);
+          localStorage.removeItem("token");
+        });
+    }
+  }, []); */
 
   return (
     <div className="app">

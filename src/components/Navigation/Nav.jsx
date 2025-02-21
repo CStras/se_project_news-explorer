@@ -1,13 +1,12 @@
 import "./Nav.css";
 import { Link } from "react-router-dom";
-import { CurrentUserContext } from "../../context/currentUserContext";
+import CurrentUserContext from "../../context/currentUserContext";
 import { useContext } from "react";
 import logout from "../../assets/logout.svg";
 import logoutWhite from "../../assets/logoutWhite.svg";
 
 function Nav({ handleLogin, isLoggedIn }) {
-  const { currentUser } = useContext(CurrentUserContext);
-  console.log(currentUser);
+  const { username } = useContext(CurrentUserContext);
   return (
     <nav className="nav__content">
       <p className="nav__logo">NewsExplorer</p>
@@ -47,7 +46,7 @@ function Nav({ handleLogin, isLoggedIn }) {
               }
             >
               <span className="nav__profile-btn_text">
-                {currentUser.username}
+                {username || "User"}
               </span>
               <img src={location.pathname === "/" ? logoutWhite : logout} />
             </button>

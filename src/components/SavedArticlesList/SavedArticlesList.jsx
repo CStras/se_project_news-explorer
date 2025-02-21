@@ -1,8 +1,8 @@
 import "./SavedArticlesList.css";
-import NewsCard from "../NewsCard/NewsCard";
+import NewsCardList from "../NewsCardList/NewsCardList";
 
-function SavedArticlesList() {
-  return <NewsCard />;
+function SavedArticlesList({ newsData }) {
+  return <NewsCardList newsData={newsData} />;
 }
 
 export default SavedArticlesList;

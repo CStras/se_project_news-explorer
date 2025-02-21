@@ -1,4 +1,4 @@
-export const stubbedSavedNewsList = [
+const stubbedSavedNewsList = [
   {
     source: {
       id: null,
@@ -15,7 +15,7 @@ export const stubbedSavedNewsList = [
     publishedAt: "2025-02-17T11:00:21+00:00",
     content:
       "NASA just wrapped engine performance tests on its X-59 research aircraft, which the space agency hopes will prove a means of mitigating supersonic aircraft’s odious sonic booms. NASA and Lockheed Martin ran the tests between October and February on the single modified F414-GE-100 engine that will power the aircraft and its subsystems",
-    keyword: "nature",
+    keyword: "technology",
   },
   {
     source: {
@@ -33,6 +33,7 @@ export const stubbedSavedNewsList = [
     publishedAt: "2025-02-17T13:00:03+00:00",
     content:
       "What’s as strong as steel, as light as aluminum, and capable of withstanding ballistic impact, fire, and radiation? Metal foam. Over a decade ago, engineer Afsaneh Rabiei of North Carolina State University invented Composite Metal Foam (CMF)—a material made of hollow metal “bubbles” embedded in steel, titanium, aluminum, or other alloys. From air and space travel to defense, the exceptionally strong and lightweight material could have a variety of applications. After years of testing against ballistics, blasts, vibrations, radiation, and fire, Rabiei’s company, Advanced Materials Manufacturing, is officially ready for production.",
+    keyword: "space",
   },
   {
     source: {
@@ -50,6 +51,7 @@ export const stubbedSavedNewsList = [
     publishedAt: "2025-02-17T15:00:07+00:00",
     content:
       "NASA’s Lunar Trailblazer is officially in Florida and integrated with a SpaceX Falcon 9 rocket in anticipation of its launch into space later this month. The petite satellite is set to launch no earlier than February 26 from Kennedy Space Center, with the ultimate objective of getting into lunar orbit and taking a full assessment of the water content on our planet’s rocky satellite. Water molecules exist on the Moon’s sunlit surface, but the water is lost to space, raising the still-open question of how water on the lunar surface is replenished. The Lunar Trailblazer could provide answers.",
+    keyword: "space",
   },
   {
     source: {
@@ -67,5 +69,8 @@ export const stubbedSavedNewsList = [
     publishedAt: "2025-02-16T13:00:04+00:00",
     content:
       "The average Londoner might be shocked to hear that, over the past two hundred years, hundreds of human bones have been discovered in the River Thames. As new research shows, a sizable portion of these remains date back to prehistoric times. Researchers in the U.K. have studied the remains of 61 individuals recovered from the iconic river, confirming that most date back to the Bronze Age and Iron Age. Though it’s impossible to know exactly why the bodies ended up in the river thousands of years ago, the abundance of cases specifically between 2300 BCE to 43 CE led the team to suggest that the deposition of bodies during that time period was intentional.",
+    keyword: "nature",
   },
 ];
+
+export default stubbedSavedNewsList;
