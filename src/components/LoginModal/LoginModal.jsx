@@ -14,7 +14,7 @@ const LoginModal = ({
     resetForm({ email: "", password: "" });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     handleLogin(values, handleReset);
   };
 

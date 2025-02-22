@@ -1,0 +1,11 @@
+.complete-modal__link {
+    font-size: 18px;
+    font-family: "Inter Reg";
+    margin-top: 30px;
+    color: rgba(47, 113, 229, 1);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+}

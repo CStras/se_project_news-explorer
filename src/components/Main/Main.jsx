@@ -1,4 +1,3 @@
-import "./Main.css";
 import Header from "../Header/Header.jsx";
 import NewsCardList from "../NewsCardList/NewsCardList.jsx";
 import About from "../About/About.jsx";
@@ -13,6 +12,7 @@ function Main({
   isError,
   isLoadingNewsData,
   setActiveModal,
+  handleLogout,
 }) {
   return (
     <div className="main_content">
@@ -21,6 +21,7 @@ function Main({
         isLoggedIn={isLoggedIn}
         handleSearch={handleSearch}
         setCurrentKeyword={setCurrentKeyword}
+        handleLogout={handleLogout}
       />
       <NewsCardList
         newsData={newsData}

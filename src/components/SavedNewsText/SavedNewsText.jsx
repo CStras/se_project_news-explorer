@@ -4,7 +4,7 @@ import CurrentUserContext from "../../context/currentUserContext";
 import stubbedSavedNewsList from "../../utils/SavedArticlesList";
 
 function SavedNewsText() {
-  const { username } = useContext(CurrentUserContext);
+  const currentUser = useContext(CurrentUserContext);
 
   const savedArticles = stubbedSavedNewsList.length;
 
@@ -20,7 +20,7 @@ function SavedNewsText() {
     <div className="saved-news__content">
       <p className="saved-news__title">Saved articles</p>
       <h1 className="saved-news__subtitle">
-        {username}, you have {savedArticles} saved articles
+        {currentUser?.username}, you have {savedArticles} saved articles
       </h1>
       <p>
         By keywords: <b>{keywordsText}</b>

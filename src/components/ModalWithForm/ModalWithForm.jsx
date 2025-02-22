@@ -24,6 +24,7 @@ function ModalWithForm({
           type="button"
           className="modal__close"
         />
+
         <form className="modal__form" onSubmit={handleSubmit}>
           {children}
           <div className="modal__next-btns">

@@ -5,6 +5,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
 import SavedNews from "../SavedNews/SavedNews.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
+import CompleteModal from "../completeModal/completeModal.jsx";
 import { getNews } from "../../utils/api.js";
 import { getLastWeeksDate, getCurrentDate } from "../../utils/FindDate.js";
 import { useState, useEffect } from "react";
@@ -44,8 +45,6 @@ function App() {
 
     const email = values.email;
     const password = values.password;
-    console.log(email);
-    console.log(password);
 
     auth
       .loginUser({ email, password })
@@ -55,11 +54,10 @@ function App() {
         if (data) {
           localStorage.setItem("token", data);
           auth.checkToken(data).then((data) => {
-            console.log(data);
             setCurrentUser(data);
-            console.log(currentUser);
+
             setIsLoggedIn(true);
-            console.log(isLoggedIn);
+
             closeActiveModal();
           });
         }
@@ -67,20 +65,20 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-    console.log(currentUser);
-    console.log(isLoggedIn);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    setCurrentUser({});
   };
 
   const handleRegister = (email, password, username) => {
     auth
       .createUser({ email, password, username })
       .then((data) => {
-        setCurrentUser(data.data);
-        console.log(data.data);
-        console.log(currentUser);
-        setIsLoggedIn(true);
-        closeActiveModal();
-        navigate("/");
+        setActiveModal("complete");
+        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -162,6 +160,7 @@ function App() {
                   isError={isError}
                   isLoadingNewsData={isLoadingNewsData}
                   setActiveModal={setActiveModal}
+                  handleLogout={handleLogout}
                 />
               }
             />
@@ -188,6 +187,13 @@ function App() {
               closeActiveModal={closeActiveModal}
               isOpen={activeModal === "register"}
               handleRegister={handleRegister}
+            />
+          )}
+          {activeModal === "complete" && (
+            <CompleteModal
+              isOpen={activeModal === "complete"}
+              setActiveModal={setActiveModal}
+              closeActiveModal={closeActiveModal}
             />
           )}
           <Footer />

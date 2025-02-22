@@ -1,12 +1,12 @@
 import "./Nav.css";
 import { Link } from "react-router-dom";
 import CurrentUserContext from "../../context/currentUserContext";
-import { useContext } from "react";
 import logout from "../../assets/logout.svg";
 import logoutWhite from "../../assets/logoutWhite.svg";
+import { useContext } from "react";
 
-function Nav({ handleLogin, isLoggedIn }) {
-  const { username } = useContext(CurrentUserContext);
+function Nav({ handleLogin, isLoggedIn, handleLogout }) {
+  const username = useContext(CurrentUserContext);
   return (
     <nav className="nav__content">
       <p className="nav__logo">NewsExplorer</p>
@@ -38,7 +38,7 @@ function Nav({ handleLogin, isLoggedIn }) {
               </Link>
             </div>
             <button
-              onClick={handleLogin}
+              onClick={isLoggedIn ? handleLogout : handleLogin}
               className={
                 location.pathname === "/saved-news"
                   ? "nav_profile-btn_saved"

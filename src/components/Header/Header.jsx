@@ -2,11 +2,21 @@ import "./Header.css";
 import Nav from "../Navigation/Nav.jsx";
 import SearchForm from "../SearchForm/SearchForm.jsx";
 
-function Header({ handleLogin, isLoggedIn, handleSearch, setCurrentKeyword }) {
+function Header({
+  handleLogin,
+  handleLogout,
+  isLoggedIn,
+  handleSearch,
+  setCurrentKeyword,
+}) {
   return (
     <header className="header">
       <div className="header__nav">
-        <Nav handleLogin={handleLogin} isLoggedIn={isLoggedIn} />
+        <Nav
+          handleLogin={handleLogin}
+          isLoggedIn={isLoggedIn}
+          handleLogout={handleLogout}
+        />
       </div>
       <div className="header__content">
         <h1 className="header__title">What's going on in the world?</h1>

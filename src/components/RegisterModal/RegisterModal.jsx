@@ -8,14 +8,10 @@ const RegisterModal = ({
   closeActiveModal,
   handleRegister,
 }) => {
-  const { values, handleChange, isValid, resetForm, errors } = FormValidation();
-
-  const resetRegisterForm = () => {
-    resetForm({ email: "", password: "", username: "" });
-  };
+  const { values, handleChange, isValid, errors } = FormValidation();
 
   const handleSubmit = (evt) => {
-    handleRegister(values.email, values.password, values.name);
+    handleRegister(values.email, values.password, values.username);
   };
 
   return (
@@ -69,25 +65,25 @@ const RegisterModal = ({
       >
         {errors.password}
       </span>
-      <label className="modal__label" htmlFor="name">
+      <label className="modal__label" htmlFor="username">
         Username
         <input
           className="modal__input"
           type="text"
-          id="name"
-          name="name"
+          id="username"
+          name="username"
           required
           onChange={handleChange}
-          value={values.name || ""}
+          value={values.username || ""}
         />
       </label>
       <span
         className={`modal__input-error ${
-          errors.name ? "modal__input-error_visible" : ""
+          errors.username ? "modal__input-error_visible" : ""
         }`}
         id="name-error"
       >
-        {errors.name}
+        {errors.username}
       </span>
     </ModalWithForm>
   );
