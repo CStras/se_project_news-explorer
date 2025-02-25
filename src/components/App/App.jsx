@@ -38,7 +38,7 @@ function App() {
     setActiveModal("");
   };
 
-  const handleLogin = (values, resetForm) => {
+  const handleLogin = (values) => {
     if (!values) {
       return;
     }
@@ -78,7 +78,6 @@ function App() {
       .createUser({ email, password, username })
       .then((data) => {
         setActiveModal("complete");
-        console.log(data);
       })
       .catch((err) => {
         console.log(err);

@@ -109,3 +109,7 @@
     padding-left: 104px;
     padding-right: 104px;
   }
+
+  .news-cards-list__more-button_hidden {
+    display: none;
+  }

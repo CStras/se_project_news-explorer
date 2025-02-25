@@ -6,7 +6,7 @@ import logoutWhite from "../../assets/logoutWhite.svg";
 import { useContext } from "react";
 
 function Nav({ handleLogin, isLoggedIn, handleLogout }) {
-  const username = useContext(CurrentUserContext);
+  const { username } = useContext(CurrentUserContext);
   return (
     <nav className="nav__content">
       <p className="nav__logo">NewsExplorer</p>

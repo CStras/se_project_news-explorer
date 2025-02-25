@@ -3,7 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import stubbedSavedNewsList from "../../utils/SavedArticlesList";
 
-function NewsCard({ newsItem, isLoggedIn, setActiveModal }) {
+function NewsCard({ newsItem, isLoggedIn }) {
   const location = useLocation();
 
   const source =

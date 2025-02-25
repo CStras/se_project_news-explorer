@@ -58,17 +58,24 @@ function NewsCardList({
 
       <div className="news-cards-list__grid">
         <ul className="news-cards-list__cards">
-          {activeNewsDataItems.map((newsItem) => (
+          {activeNewsDataItems.map((item) => (
             <NewsCard
-              key={newsItem.url}
-              newsItem={newsItem}
+              key={item.url}
+              newsItem={item}
               setActiveModal={setActiveModal}
               isLoggedIn={isLoggedIn}
             />
           ))}
         </ul>
       </div>
-      <button onClick={handleOnClick} className="news-cards-list__more-button">
+      <button
+        onClick={handleOnClick}
+        className={
+          emptyNewsDataArray
+            ? "news-cards-list__more-button news-cards-list__more-button_hidden"
+            : "news-cards-list__more-button"
+        }
+      >
         Show more
       </button>
     </section>
