@@ -12,10 +12,10 @@ function About() {
         <p className="about__text">
           Hi, I'm Colin Strasser, a Full-Stack Software Engineer. I have 1+
           years of experience in software development and a passion for creating
-          clean, efficient, and user-friendly applications. I have a certificate
-          in Full-Stack Software Engineering from TripleTen. I am proficient in
-          JavaScript, React, Node.js, Express, MongoDB, and more. I am excited
-          to continue learning and growing as a developer.
+          clean, efficient, and user-friendly applications. I (will) have a
+          certificate in Full-Stack Software Engineering from TripleTen. I am
+          proficient in JavaScript, React, Node.js, Express, MongoDB, and more.
+          I am excited to continue learning and growing as a developer.
         </p>
         <p className="about__text">
           Before starting my certification program, I had ~6 months of

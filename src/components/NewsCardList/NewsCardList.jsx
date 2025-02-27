@@ -11,15 +11,18 @@ function NewsCardList({
   isLoadingNewsData,
   setActiveModal,
   isLoggedIn,
+  handleSaveArticle,
+  savedArticles,
+  currentKeyword,
 }) {
   const [activeNewsDataLength, setActiveNewsDataLength] = useState(3);
-  const activeNewsDataItems = newsData.slice(0, activeNewsDataLength);
+  const activeNewsDataItems = newsData?.slice(0, activeNewsDataLength);
   const isInitialState =
-    newsData.length === 0 &&
+    newsData?.length === 0 &&
     !isSuccessNewsData &&
     !isError &&
     !isLoadingNewsData;
-  const emptyNewsDataArray = newsData.length === 0 && isSuccessNewsData;
+  const emptyNewsDataArray = newsData?.length === 0 && isSuccessNewsData;
   const handleOnClick = () => {
     setActiveNewsDataLength((num) => num + 3);
   };
@@ -58,12 +61,15 @@ function NewsCardList({
 
       <div className="news-cards-list__grid">
         <ul className="news-cards-list__cards">
-          {activeNewsDataItems.map((item) => (
+          {activeNewsDataItems?.map((item) => (
             <NewsCard
               key={item.url}
               newsItem={item}
               setActiveModal={setActiveModal}
               isLoggedIn={isLoggedIn}
+              handleSaveArticle={handleSaveArticle}
+              savedArticles={savedArticles}
+              currentKeyword={currentKeyword}
             />
           ))}
         </ul>

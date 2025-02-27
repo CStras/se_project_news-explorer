@@ -13,6 +13,9 @@ function Main({
   isLoadingNewsData,
   setActiveModal,
   handleLogout,
+  handleSaveArticle,
+  savedArticles,
+  currentKeyword,
 }) {
   return (
     <div className="main_content">
@@ -30,6 +33,9 @@ function Main({
         isLoadingNewsData={isLoadingNewsData}
         setActiveModal={setActiveModal}
         isLoggedIn={isLoggedIn}
+        handleSaveArticle={handleSaveArticle}
+        savedArticles={savedArticles}
+        currentKeyword={currentKeyword}
       />
       <About />
     </div>

@@ -10,7 +10,8 @@ import { getNews } from "../../utils/api.js";
 import { getLastWeeksDate, getCurrentDate } from "../../utils/FindDate.js";
 import { useState, useEffect } from "react";
 import CurrentUserContext from "../../context/currentUserContext";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import stubbedSavedNewsList from "../../utils/SavedArticlesList.jsx";
 import { apikey } from "../../utils/contant.js";
 import auth from "../../utils/auth.js";
 
@@ -27,8 +28,7 @@ function App() {
   const [newsData, setNewsData] = useState([]);
   const [isError, setIsError] = useState(false);
   const [isLoadingNewsData, setIsLoadingNewsData] = useState(false);
-
-  const navigate = useNavigate();
+  const [savedArticles, setSavedArticles] = useState(stubbedSavedNewsList);
 
   const handleLoginClick = () => {
     setActiveModal("login");
@@ -57,7 +57,7 @@ function App() {
             setCurrentUser(data);
 
             setIsLoggedIn(true);
-
+            console.log(isLoggedIn);
             closeActiveModal();
           });
         }
@@ -92,6 +92,10 @@ function App() {
 
     getNews(currentKeyword, apikey, getLastWeeksDate(), getCurrentDate())
       .then((data) => {
+        console.log(data);
+        for (let i = 0; i < data.articles.length; i++) {
+          data.articles[i].id = i;
+        }
         setNewsData(data.articles);
         setIsSuccessNewsData(true);
         setIsLoadingNewsData(false);
@@ -100,6 +104,32 @@ function App() {
         setIsError(true);
         console.log(err);
       });
+  };
+
+  const handleSaveArticle = ({ item, saved }) => {
+    console.log(item);
+    const token = localStorage.getItem("token");
+    if (!saved && isLoggedIn) {
+      auth
+        .saveArticle(item, token)
+        .then((res) => {
+          setSavedArticles((prev) => [...prev, item]);
+        })
+        .catch((err) => {
+          console.error("Something went wrong saving the article:", err);
+        });
+    } else if (saved) {
+      auth
+        .unsaveArticle(item, token)
+        .then(() => {
+          setSavedArticles((prev) =>
+            prev.filter((article) => article.id !== item.id)
+          );
+        })
+        .catch((err) => {
+          console.error("Something went wrong unsaving the article:", err);
+        });
+    }
   };
 
   useEffect(() => {
@@ -160,6 +190,9 @@ function App() {
                   isLoadingNewsData={isLoadingNewsData}
                   setActiveModal={setActiveModal}
                   handleLogout={handleLogout}
+                  handleSaveArticle={handleSaveArticle}
+                  savedArticles={savedArticles}
+                  currentKeyword={currentKeyword}
                 />
               }
             />
@@ -167,7 +200,10 @@ function App() {
               path="/saved-news"
               element={
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
-                  <SavedNews isLoggedIn={isLoggedIn} />
+                  <SavedNews
+                    isLoggedIn={isLoggedIn}
+                    savedArticles={savedArticles}
+                  />
                 </ProtectedRoute>
               }
             />

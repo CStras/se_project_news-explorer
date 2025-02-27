@@ -1,9 +1,19 @@
 import "./NewsCard.css";
 import { useLocation, Link } from "react-router-dom";
 import { useState, useContext } from "react";
-import stubbedSavedNewsList from "../../utils/SavedArticlesList";
+import CurrentUserContext from "../../context/currentUserContext";
 
-function NewsCard({ newsItem, isLoggedIn }) {
+function NewsCard({
+  newsItem,
+  isLoggedIn,
+  handleSaveArticle,
+  setActiveModal,
+  savedArticles,
+  currentKeyword,
+}) {
+  const [isSaved, setIsSaved] = useState(newsItem.saved || false);
+  //const isLoggedIn = useContext(CurrentUserContext).isLoggedIn;
+
   const location = useLocation();
 
   const source =
@@ -17,17 +27,31 @@ function NewsCard({ newsItem, isLoggedIn }) {
     day: "numeric",
   });
 
+  const setLoginModal = () => {
+    setActiveModal("login");
+  };
+
   const handleSaveClick = () => {
-    console.log("save");
+    console.log("saved");
+    setIsSaved((state) => !state);
+    console.log(isSaved);
+    handleSaveArticle({
+      item: newsItem,
+      saved: false,
+      keyword: currentKeyword,
+    });
   };
 
-  const handDeleteClick = () => {
-    console.log("delete");
+  const handleDeleteClick = () => {
+    console.log("deleted");
+    setIsSaved((state) => !state);
+    console.log(isSaved);
+    handleSaveArticle({ item: newsItem, saved: true });
   };
 
-  const isSaved = stubbedSavedNewsList.some((article) => {
+  /*const isSaved = stubbedSavedNewsList.some((article) => {
     return article.link === newsItem.url;
-  });
+  }); */
 
   return (
     <div className="news-card__container">
@@ -37,24 +61,23 @@ function NewsCard({ newsItem, isLoggedIn }) {
         )}
         <div className="news-card__button-container">
           {!isLoggedIn && location.pathname === "/" && (
-            <div className="news-card__sign-in-btn">
+            <div className="news-card__sign-in-note">
               Sign in to save articles
             </div>
           )}
+          {location.pathname === "/saved-news" && (
+            <div className="news-card__sign-in-note">Remove from saved</div>
+          )}
           {location.pathname === "/" && (
             <button
-              className={
-                isSaved
-                  ? "news-card__save_active news-card__save"
-                  : "news-card__save"
-              }
-              onClick={handleSaveClick}
+              className={isSaved ? "news-card__save_active" : "news-card__save"}
+              onClick={!isLoggedIn ? setLoginModal : handleSaveClick}
             ></button>
           )}
           {location.pathname === "/saved-news" && (
             <button
               className="news-card__delete"
-              onClick={handDeleteClick}
+              onClick={handleDeleteClick}
             ></button>
           )}
         </div>

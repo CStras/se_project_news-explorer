@@ -1,15 +1,14 @@
 import "./SavedNewsText.css";
 import { useContext } from "react";
 import CurrentUserContext from "../../context/currentUserContext";
-import stubbedSavedNewsList from "../../utils/SavedArticlesList";
 
-function SavedNewsText() {
+function SavedNewsText({ savedArticles }) {
   const currentUser = useContext(CurrentUserContext);
-
-  const savedArticles = stubbedSavedNewsList.length;
+  console.log(savedArticles);
+  const savedArticlesCount = savedArticles?.length;
 
   const keywords = [
-    ...new Set(stubbedSavedNewsList.map((article) => article.keyword)),
+    ...new Set(savedArticles?.map((article) => article.keyword)),
   ];
   const keywordsText =
     keywords.length > 2
@@ -20,7 +19,7 @@ function SavedNewsText() {
     <div className="saved-news__content">
       <p className="saved-news__title">Saved articles</p>
       <h1 className="saved-news__subtitle">
-        {currentUser?.username}, you have {savedArticles} saved articles
+        {currentUser?.username}, you have {savedArticlesCount} saved articles
       </h1>
       <p>
         By keywords: <b>{keywordsText}</b>

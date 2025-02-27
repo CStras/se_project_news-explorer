@@ -1,7 +1,7 @@
 const stubbedSavedNewsList = [
   {
     source: {
-      id: null,
+      id: 123,
       name: "Gizmodo.com",
     },
     author: "Isaac Schultz",
@@ -19,7 +19,7 @@ const stubbedSavedNewsList = [
   },
   {
     source: {
-      id: null,
+      id: 456,
       name: "Gizmodo.com",
     },
     author: "Margherita Bassi",
@@ -37,7 +37,7 @@ const stubbedSavedNewsList = [
   },
   {
     source: {
-      id: null,
+      id: 789,
       name: "Gizmodo.com",
     },
     author: "Isaac Schultz",
@@ -55,7 +55,7 @@ const stubbedSavedNewsList = [
   },
   {
     source: {
-      id: null,
+      id: 101,
       name: "Gizmodo.com",
     },
     author: "Margherita Bassi",
