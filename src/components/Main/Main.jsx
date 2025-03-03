@@ -18,7 +18,7 @@ function Main({
   currentKeyword,
 }) {
   return (
-    <div className="main_content">
+    <div className="main__content">
       <Header
         handleLogin={handleLogin}
         isLoggedIn={isLoggedIn}

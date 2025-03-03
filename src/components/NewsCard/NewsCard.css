@@ -78,6 +78,7 @@
     line-height: 20px;
     text-align: left;
     color: #b6bcbf;
+    margin: 0;
   }
 
   .news-card__keyword-icon {
@@ -187,4 +188,31 @@
   
   .news-card__delete_active {
     display: visible;
+  }
+
+  @media screen and (max-width: 768px) {
+    .news-card__container {
+      width: 224px;
+      height: 420px;
+    }
+
+    .news-card__date {
+      padding: 0;
+      margin: 16px 15px 12px;
+    }
+
+    .news-card__image {
+      padding: 0;
+    }
+
+    .news-card__title {
+      margin: 0 16px 10px;
+      text-decoration: none;
+    }
+
+    .news-card__text {
+      width: 192px;
+      max-height: 88px;
+
+    }
   }

@@ -174,7 +174,7 @@ function App() {
   return (
     <div className="app">
       <CurrentUserContext.Provider value={currentUser}>
-        <div className="app_content">
+        <div className="app__content">
           <Routes>
             <Route
               path="/"

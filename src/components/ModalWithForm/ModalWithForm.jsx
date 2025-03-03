@@ -9,6 +9,7 @@ function ModalWithForm({
   firstBtnText,
   secondBtnText,
   onSubmit,
+  formValid,
 }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -29,7 +30,10 @@ function ModalWithForm({
           {children}
           <div className="modal__next-btns">
             {firstBtnText && (
-              <button className="modal__submit" type="submit">
+              <button
+                className={formValid ? "modal__submit__valid" : "modal__submit"}
+                type="submit"
+              >
                 {firstBtnText}
               </button>
             )}
@@ -39,7 +43,7 @@ function ModalWithForm({
                 type="button"
                 onClick={secondBtnClick}
               >
-                <span className="modal__alt-text">or</span>
+                <span className="modal__alt-text_active">or</span>
                 {secondBtnText}
               </button>
             )}

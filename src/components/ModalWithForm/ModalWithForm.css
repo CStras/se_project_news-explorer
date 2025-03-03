@@ -119,6 +119,21 @@
     cursor: pointer;
 }
 
+.modal__submit__valid{
+    background: rgba(47, 113, 229, 1);
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    font-family: "Roboto Medium";
+    font-size: 18px;
+    line-height: 24px;
+    border-radius: 100px;
+    height: 64px;
+    width: 100%;
+    padding: 0;
+    margin: 40px 0 16px;
+    cursor: pointer;
+}
+
 .modal__second-btn {
     background: none;
     font-family: "Inter Reg";
