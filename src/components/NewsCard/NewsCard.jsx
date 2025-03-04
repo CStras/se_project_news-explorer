@@ -8,7 +8,6 @@ function NewsCard({
   isLoggedIn,
   handleSaveArticle,
   setActiveModal,
-  savedArticles,
   currentKeyword,
 }) {
   const [isSaved, setIsSaved] = useState(newsItem.saved || false);
@@ -16,10 +15,9 @@ function NewsCard({
 
   const location = useLocation();
 
-  const source =
-    location.pathname === "/"
-      ? newsItem.source?.name.toUpperCase().split(".")[0]
-      : "UNKNOWN";
+  const source = newsItem
+    ? newsItem.source?.name.toUpperCase().split(".")[0]
+    : "UNKNOWN";
 
   const dateInWords = new Date(newsItem.publishedAt).toLocaleString("default", {
     year: "numeric",
@@ -35,10 +33,11 @@ function NewsCard({
     console.log("saved");
     setIsSaved((state) => !state);
     console.log(isSaved);
+    console.log(currentKeyword);
+    newsItem.keyword = currentKeyword;
     handleSaveArticle({
       item: newsItem,
       saved: false,
-      keyword: currentKeyword,
     });
   };
 
@@ -66,7 +65,7 @@ function NewsCard({
             </div>
           )}
           {location.pathname === "/saved-news" && (
-            <div className="news-card__sign-in-note">Remove from saved</div>
+            <div className="news-card__sign-in-note">Removed from saved</div>
           )}
           {location.pathname === "/" && (
             <button

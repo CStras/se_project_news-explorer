@@ -89,3 +89,47 @@
     display: flex;
     align-items: center;
 }
+
+.nav__menu-img {
+    display: none;
+
+}
+
+@media screen and (max-width: 768px) {
+    .nav__content {
+        padding: 14px 40px 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .nav__home-btn {
+        display: none;
+    }
+    
+    .nav__logo {
+        font-family: "Roboto-slab Bold";
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0;
+        max-width: 117px;
+    }
+
+    .nav__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px ;
+    }
+
+    .nav__signup-btn {
+        display: none;
+    }
+
+    .nav__menu-img {
+        display: block;
+        background: transparent;
+        width: 24px;
+        height: 24px;
+        border: none;
+    }
+}

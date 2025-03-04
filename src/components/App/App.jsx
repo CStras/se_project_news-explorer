@@ -10,7 +10,7 @@ import { getNews } from "../../utils/api.js";
 import { getLastWeeksDate, getCurrentDate } from "../../utils/FindDate.js";
 import { useState, useEffect } from "react";
 import CurrentUserContext from "../../context/currentUserContext";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import stubbedSavedNewsList from "../../utils/SavedArticlesList.jsx";
 import { apikey } from "../../utils/contant.js";
 import auth from "../../utils/auth.js";
@@ -30,6 +30,8 @@ function App() {
   const [isLoadingNewsData, setIsLoadingNewsData] = useState(false);
   const [savedArticles, setSavedArticles] = useState(stubbedSavedNewsList);
 
+  const navigate = useNavigate();
+
   const handleLoginClick = () => {
     setActiveModal("login");
   };
@@ -39,6 +41,7 @@ function App() {
   };
 
   const handleLogin = (values) => {
+    console.log("logged in");
     if (!values) {
       return;
     }
@@ -71,6 +74,8 @@ function App() {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
     setCurrentUser({});
+    navigate("/");
+    console.log("logged out");
   };
 
   const handleRegister = (email, password, username) => {
@@ -203,6 +208,8 @@ function App() {
                   <SavedNews
                     isLoggedIn={isLoggedIn}
                     savedArticles={savedArticles}
+                    handleLogout={handleLogout}
+                    handleLogin={handleLogin}
                   />
                 </ProtectedRoute>
               }

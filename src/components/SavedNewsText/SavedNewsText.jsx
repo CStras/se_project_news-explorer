@@ -21,7 +21,7 @@ function SavedNewsText({ savedArticles }) {
       <h1 className="saved-news__subtitle">
         {currentUser?.username}, you have {savedArticlesCount} saved articles
       </h1>
-      <p>
+      <p className="saved-news__text">
         By keywords: <b>{keywordsText}</b>
       </p>
     </div>

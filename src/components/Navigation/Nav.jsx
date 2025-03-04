@@ -4,8 +4,10 @@ import CurrentUserContext from "../../context/currentUserContext";
 import logout from "../../assets/logout.svg";
 import logoutWhite from "../../assets/logoutWhite.svg";
 import { useContext } from "react";
+import menu from "../../assets/menu.svg";
 
 function Nav({ handleLogin, isLoggedIn, handleLogout }) {
+  console.log(isLoggedIn);
   const { username } = useContext(CurrentUserContext);
   return (
     <nav className="nav__content">
@@ -50,11 +52,15 @@ function Nav({ handleLogin, isLoggedIn, handleLogout }) {
               </span>
               <img src={location.pathname === "/" ? logoutWhite : logout} />
             </button>
+            <img className="nav__menu-img" src={menu} />
           </>
         ) : (
-          <button onClick={handleLogin} className="nav__signup-btn">
-            Sign in
-          </button>
+          <div>
+            <button onClick={handleLogin} className="nav__signup-btn">
+              Sign in
+            </button>
+            <img className="nav__menu-img" src={menu} />
+          </div>
         )}
       </div>
     </nav>

@@ -8,16 +8,18 @@ function Footer() {
     <div className="footer">
       <p className="footer__copyright">© 2024 Supersite, Powered by News API</p>
       <div className="footer__links">
-        <Link className="footer__link" to="/">
-          Home
-        </Link>
-        <a
-          className="footer__link"
-          target="_blank"
-          href="https://tripleten.com/"
-        >
-          TripleTen
-        </a>
+        <div className="footer__nav-links">
+          <Link className="footer__link" to="/">
+            Home
+          </Link>
+          <a
+            className="footer__link"
+            target="_blank"
+            href="https://tripleten.com/"
+          >
+            TripleTen
+          </a>
+        </div>
         <div className="footer__icon-links">
           <a
             className="footer__link"
