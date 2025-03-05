@@ -8,6 +8,9 @@ function Header({
   isLoggedIn,
   handleSearch,
   setCurrentKeyword,
+  activeModal,
+  setActiveModal,
+  handleMenuClick,
 }) {
   return (
     <header className="header">
@@ -16,6 +19,9 @@ function Header({
           handleLogin={handleLogin}
           isLoggedIn={isLoggedIn}
           handleLogout={handleLogout}
+          activeModal={activeModal}
+          setActiveModal={setActiveModal}
+          handleMenuClick={handleMenuClick}
         />
       </div>
       <div className="header__content">

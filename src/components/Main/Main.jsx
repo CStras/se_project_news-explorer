@@ -16,6 +16,8 @@ function Main({
   handleSaveArticle,
   savedArticles,
   currentKeyword,
+  activeModal,
+  handleMenuClick,
 }) {
   return (
     <div className="main__content">
@@ -25,6 +27,9 @@ function Main({
         handleSearch={handleSearch}
         setCurrentKeyword={setCurrentKeyword}
         handleLogout={handleLogout}
+        activeModal={activeModal}
+        setActiveModal={setActiveModal}
+        handleMenuClick={handleMenuClick}
       />
       <NewsCardList
         newsData={newsData}

@@ -86,8 +86,16 @@
 
 @media screen and (max-width: 320px) { 
 
+    .search {
+        padding: 88px 0 100px;
+        display: flex;
+        justify-content: center;
+    }
+
     .search__form {
         display: flex;
+        position: relative;
+        left: -5px;
         flex-direction: column;
         font-family: "Roboto Reg";
     }

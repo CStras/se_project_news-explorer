@@ -92,12 +92,44 @@
 
 .nav__menu-img {
     display: none;
+    cursor: "pointer"
+}
 
+.nav__menu-img_hidden {
+    display: none;
+    background-image: none;
 }
 
 @media screen and (max-width: 768px) {
     .nav__content {
         padding: 14px 40px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav__profile-btn {
+        display: none;
+    }
+
+    .nav__home-btn_saved {
+        display: none;
+    }
+
+    .nav__home-btn {
+        display: none;
+    }
+
+    .nav_profile-btn_saved {
+        display: none;
+    }
+
+    .nav__menu-img {
+        display: block;
+    }
+
+    .nav__signup-btn {
+        display: none;
     }
 }
 
@@ -131,5 +163,17 @@
         width: 24px;
         height: 24px;
         border: none;
+    }
+
+    .nav__profile-btn {
+        display: none;
+    }
+
+    .nav__home-btn_saved {
+        display: none;
+    }
+
+    .nav_profile-btn_saved {
+        display: none;
     }
 }

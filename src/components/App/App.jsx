@@ -6,6 +6,7 @@ import SavedNews from "../SavedNews/SavedNews.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import CompleteModal from "../completeModal/completeModal.jsx";
+import MenuModal from "../MenuModal/MenuModal.jsx";
 import { getNews } from "../../utils/api.js";
 import { getLastWeeksDate, getCurrentDate } from "../../utils/FindDate.js";
 import { useState, useEffect } from "react";
@@ -38,6 +39,11 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
+  };
+
+  const handleMenuClick = () => {
+    setActiveModal("menu");
+    console.log("menu clicked");
   };
 
   const handleLogin = (values) => {
@@ -75,6 +81,7 @@ function App() {
     setIsLoggedIn(false);
     setCurrentUser({});
     navigate("/");
+    setActiveModal("");
     console.log("logged out");
   };
 
@@ -127,6 +134,7 @@ function App() {
       auth
         .unsaveArticle(item, token)
         .then(() => {
+          console.log(item);
           setSavedArticles((prev) =>
             prev.filter((article) => article.id !== item.id)
           );
@@ -193,11 +201,13 @@ function App() {
                   isSuccessNewsData={isSuccessNewsData}
                   isError={isError}
                   isLoadingNewsData={isLoadingNewsData}
+                  activeModal={activeModal}
                   setActiveModal={setActiveModal}
                   handleLogout={handleLogout}
                   handleSaveArticle={handleSaveArticle}
                   savedArticles={savedArticles}
                   currentKeyword={currentKeyword}
+                  handleMenuClick={handleMenuClick}
                 />
               }
             />
@@ -210,6 +220,10 @@ function App() {
                     savedArticles={savedArticles}
                     handleLogout={handleLogout}
                     handleLogin={handleLogin}
+                    activeModal={activeModal}
+                    handleMenuClick={handleMenuClick}
+                    handleSaveArticle={handleSaveArticle}
+                    setSavedArticles={setSavedArticles}
                   />
                 </ProtectedRoute>
               }
@@ -236,6 +250,16 @@ function App() {
               isOpen={activeModal === "complete"}
               setActiveModal={setActiveModal}
               closeActiveModal={closeActiveModal}
+            />
+          )}
+          {activeModal === "menu" && (
+            <MenuModal
+              isOpen={activeModal === "menu"}
+              setActiveModal={setActiveModal}
+              closeActiveModal={closeActiveModal}
+              isLoggedIn={isLoggedIn}
+              handleLoginClick={handleLoginClick}
+              handleLogout={handleLogout}
             />
           )}
           <Footer />

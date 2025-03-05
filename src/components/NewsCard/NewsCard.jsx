@@ -9,6 +9,8 @@ function NewsCard({
   handleSaveArticle,
   setActiveModal,
   currentKeyword,
+  savedArticles,
+  setSavedArticles,
 }) {
   const [isSaved, setIsSaved] = useState(newsItem.saved || false);
   //const isLoggedIn = useContext(CurrentUserContext).isLoggedIn;
@@ -41,11 +43,14 @@ function NewsCard({
     });
   };
 
-  const handleDeleteClick = () => {
+  const handleDeleteClick = (e) => {
     console.log("deleted");
-    setIsSaved((state) => !state);
-    console.log(isSaved);
-    handleSaveArticle({ item: newsItem, saved: true });
+    //setIsSaved((state) => !state);
+    //console.log(isSaved);
+    handleSaveArticle({
+      item: e.target.parentElement.parentElement.parentElement,
+      saved: true,
+    });
   };
 
   /*const isSaved = stubbedSavedNewsList.some((article) => {

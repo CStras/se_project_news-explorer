@@ -14,6 +14,7 @@ function NewsCardList({
   handleSaveArticle,
   savedArticles,
   currentKeyword,
+  setSavedArticles,
 }) {
   const [activeNewsDataLength, setActiveNewsDataLength] = useState(3);
   const activeNewsDataItems = newsData?.slice(0, activeNewsDataLength);
@@ -35,7 +36,15 @@ function NewsCardList({
           : "news-cards-list"
       }
     >
-      <h2 className="news-cards-list__title">Search Results</h2>
+      <h2
+        className={
+          location.pathname === "/"
+            ? "news-cards-list__title"
+            : "news-cards-list__title_hidden"
+        }
+      >
+        Search Results
+      </h2>
       <div
         className={
           emptyNewsDataArray
@@ -70,6 +79,7 @@ function NewsCardList({
               handleSaveArticle={handleSaveArticle}
               savedArticles={savedArticles}
               currentKeyword={currentKeyword}
+              setSavedArticles={setSavedArticles}
             />
           ))}
         </ul>

@@ -32,6 +32,7 @@ const RegisterModal = ({
           type="email"
           id="email"
           name="email"
+          placeholder="Enter email"
           required
           onChange={handleChange}
           value={values.email || ""}
@@ -52,6 +53,7 @@ const RegisterModal = ({
           type="password"
           id="password"
           name="password"
+          placeholder="Enter password"
           required
           onChange={handleChange}
           value={values.password || ""}
@@ -72,6 +74,7 @@ const RegisterModal = ({
           type="text"
           id="username"
           name="username"
+          placeholder="Enter username"
           required
           onChange={handleChange}
           value={values.username || ""}

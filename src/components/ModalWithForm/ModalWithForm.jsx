@@ -43,7 +43,7 @@ function ModalWithForm({
                 type="button"
                 onClick={secondBtnClick}
               >
-                <span className="modal__alt-text_active">or</span>
+                <span className="modal__alt-text">or</span>
                 {secondBtnText}
               </button>
             )}

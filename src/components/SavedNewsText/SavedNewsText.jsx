@@ -1,10 +1,8 @@
-import "./SavedNewsText.css";
 import { useContext } from "react";
 import CurrentUserContext from "../../context/currentUserContext";
 
 function SavedNewsText({ savedArticles }) {
   const currentUser = useContext(CurrentUserContext);
-  console.log(savedArticles);
   const savedArticlesCount = savedArticles?.length;
 
   const keywords = [
