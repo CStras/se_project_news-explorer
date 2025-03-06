@@ -10,7 +10,7 @@ const RegisterModal = ({
 }) => {
   const { values, handleChange, isValid, errors } = FormValidation();
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = () => {
     handleRegister(values.email, values.password, values.username);
   };
 

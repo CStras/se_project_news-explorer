@@ -1,6 +1,6 @@
-export const checkToken = (token) => {
+export const checkToken = () => {
   // Pretend we did a fetch request that gave us back a user
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     resolve({
       username: "fake user",
       email: "fake@example,com",
@@ -10,13 +10,13 @@ export const checkToken = (token) => {
 };
 
 export const loginUser = ({ email, password }) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     resolve({ token: "a fake token", email, password });
   });
 };
 
 export const createUser = ({ email, password, username }) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     resolve({ username, email, _id: "fake-id", password });
   });
 };
@@ -27,7 +27,7 @@ export const saveArticle = (id, token) => {
   } else {
     console.log("Article saved without token");
   }
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     resolve({ id, saved: true });
   });
 };
@@ -38,7 +38,7 @@ export const unsaveArticle = (id, token) => {
   } else {
     console.log("Article unsaved without token");
   }
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     resolve({ id, saved: false });
   });
 };

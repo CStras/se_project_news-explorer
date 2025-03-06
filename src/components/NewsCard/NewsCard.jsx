@@ -1,7 +1,6 @@
 import "./NewsCard.css";
 import { useLocation, Link } from "react-router-dom";
-import { useState, useContext } from "react";
-import CurrentUserContext from "../../context/currentUserContext";
+import { useState } from "react";
 
 function NewsCard({
   newsItem,
@@ -9,8 +8,6 @@ function NewsCard({
   handleSaveArticle,
   setActiveModal,
   currentKeyword,
-  savedArticles,
-  setSavedArticles,
 }) {
   const [isSaved, setIsSaved] = useState(newsItem.saved || false);
   //const isLoggedIn = useContext(CurrentUserContext).isLoggedIn;
@@ -32,10 +29,7 @@ function NewsCard({
   };
 
   const handleSaveClick = () => {
-    console.log("saved");
     setIsSaved((state) => !state);
-    console.log(isSaved);
-    console.log(currentKeyword);
     newsItem.keyword = currentKeyword;
     handleSaveArticle({
       item: newsItem,
@@ -43,12 +37,9 @@ function NewsCard({
     });
   };
 
-  const handleDeleteClick = (e) => {
-    console.log("deleted");
-    //setIsSaved((state) => !state);
-    //console.log(isSaved);
+  const handleDeleteClick = () => {
     handleSaveArticle({
-      item: e.target.parentElement.parentElement.parentElement,
+      item: newsItem,
       saved: true,
     });
   };
@@ -97,7 +88,9 @@ function NewsCard({
           <h2 className="news-card__title">{newsItem.title}</h2>
         </Link>
         <p className="news-card__text">
-          {location.pathname === "/" ? newsItem.description : newsItem.text}
+          {location.pathname === "/"
+            ? newsItem.description
+            : newsItem.description}
         </p>
         <p className="news-card__source">{source}</p>
       </div>

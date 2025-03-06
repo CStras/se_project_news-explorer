@@ -10,7 +10,7 @@ function About() {
       <div className="about__content">
         <h2 className="about__title">About the author</h2>
         <p className="about__text">
-          Hi, I'm Colin Strasser, a Full-Stack Software Engineer. I have 1+
+          Hi, I&#39;m Colin Strasser, a Full-Stack Software Engineer. I have 1+
           years of experience in software development and a passion for creating
           clean, efficient, and user-friendly applications. I (will) have a
           certificate in Full-Stack Software Engineering from TripleTen. I am

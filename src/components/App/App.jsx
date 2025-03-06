@@ -13,7 +13,7 @@ import { useState, useEffect } from "react";
 import CurrentUserContext from "../../context/currentUserContext";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import stubbedSavedNewsList from "../../utils/SavedArticlesList.jsx";
-import { apikey } from "../../utils/contant.js";
+import { APIKEY } from "../../utils/contant.js";
 import auth from "../../utils/auth.js";
 
 function App() {
@@ -43,11 +43,9 @@ function App() {
 
   const handleMenuClick = () => {
     setActiveModal("menu");
-    console.log("menu clicked");
   };
 
   const handleLogin = (values) => {
-    console.log("logged in");
     if (!values) {
       return;
     }
@@ -58,15 +56,12 @@ function App() {
     auth
       .loginUser({ email, password })
       .then((data) => {
-        console.log(data);
-
         if (data) {
           localStorage.setItem("token", data);
           auth.checkToken(data).then((data) => {
             setCurrentUser(data);
 
             setIsLoggedIn(true);
-            console.log(isLoggedIn);
             closeActiveModal();
           });
         }
@@ -88,7 +83,7 @@ function App() {
   const handleRegister = (email, password, username) => {
     auth
       .createUser({ email, password, username })
-      .then((data) => {
+      .then(() => {
         setActiveModal("complete");
       })
       .catch((err) => {
@@ -102,11 +97,10 @@ function App() {
       return;
     }
 
-    getNews(currentKeyword, apikey, getLastWeeksDate(), getCurrentDate())
+    getNews(currentKeyword, APIKEY, getLastWeeksDate(), getCurrentDate())
       .then((data) => {
-        console.log(data);
         for (let i = 0; i < data.articles.length; i++) {
-          data.articles[i].id = i;
+          data.articles[i].source.id = i;
         }
         setNewsData(data.articles);
         setIsSuccessNewsData(true);
@@ -119,12 +113,11 @@ function App() {
   };
 
   const handleSaveArticle = ({ item, saved }) => {
-    console.log(item);
     const token = localStorage.getItem("token");
     if (!saved && isLoggedIn) {
       auth
         .saveArticle(item, token)
-        .then((res) => {
+        .then(() => {
           setSavedArticles((prev) => [...prev, item]);
         })
         .catch((err) => {
@@ -134,9 +127,12 @@ function App() {
       auth
         .unsaveArticle(item, token)
         .then(() => {
-          console.log(item);
-          setSavedArticles((prev) =>
-            prev.filter((article) => article.id !== item.id)
+          setSavedArticles(
+            savedArticles.filter(
+              (news) => news.source.id !== item.source.id
+
+              //news.source.id !== item.source.id
+            )
           );
         })
         .catch((err) => {

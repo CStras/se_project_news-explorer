@@ -1,4 +1,3 @@
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "../ModalWithForm/ModalWithForm.css";
 import { Link } from "react-router-dom";
 

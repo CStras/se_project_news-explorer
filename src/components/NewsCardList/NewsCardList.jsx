@@ -84,16 +84,18 @@ function NewsCardList({
           ))}
         </ul>
       </div>
-      <button
-        onClick={handleOnClick}
-        className={
-          emptyNewsDataArray
-            ? "news-cards-list__more-button news-cards-list__more-button_hidden"
-            : "news-cards-list__more-button"
-        }
-      >
-        Show more
-      </button>
+      {activeNewsDataLength < newsData?.length && (
+        <button
+          onClick={handleOnClick}
+          className={
+            emptyNewsDataArray
+              ? "news-cards-list__more-button news-cards-list__more-button_hidden"
+              : "news-cards-list__more-button"
+          }
+        >
+          Show more
+        </button>
+      )}
     </section>
   );
 }
