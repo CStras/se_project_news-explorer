@@ -14,15 +14,16 @@ function Nav({
   activeModal,
   handleMenuClick,
 }) {
+  //console.log(window.location.hash);
   const { username } = useContext(CurrentUserContext);
   return (
     <nav className="nav__content">
       <p className="nav__logo">NewsExplorer</p>
       <div className="nav__links">
-        <div>
+        <div className="nav__link">
           <Link
             className={
-              location.pathname === "/"
+              window.location.hash === "#/"
                 ? "nav__home-btn nav__btn_focused"
                 : "nav__home-btn_saved"
             }
@@ -33,11 +34,11 @@ function Nav({
         </div>
         {isLoggedIn ? (
           <>
-            <div>
+            <div className="nav__link">
               <Link
                 className={
-                  location.pathname === "/saved-news"
-                    ? "nav__home-btn nav__saved-btn_focused"
+                  window.location.hash === "#/saved-news"
+                    ? "nav__home-btn_saved nav__saved-btn_focused"
                     : "nav__home-btn"
                 }
                 to="/saved-news"
@@ -48,7 +49,7 @@ function Nav({
             <button
               onClick={isLoggedIn ? handleLogout : handleLogin}
               className={
-                location.pathname === "/saved-news"
+                window.location.hash === "#/saved-news"
                   ? "nav_profile-btn_saved"
                   : "nav__profile-btn"
               }
@@ -56,22 +57,28 @@ function Nav({
               <span className="nav__profile-btn_text">
                 {username || "User"}
               </span>
-              <img src={location.pathname === "/" ? logoutWhite : logout} />
+              <img
+                className="nav__profile-img"
+                src={window.location.hash === "#/" ? logoutWhite : logout}
+                alt="Login/Logout icon"
+              />
             </button>
             <img
               className={activeModal ? "nav__menu-img_hidden" : "nav__menu-img"}
-              src={location.pathname === "/" ? menu : menuDark}
+              src={window.location.hash === "/" ? menu : menuDark}
               onClick={handleMenuClick}
+              alt="Menu icon"
             />
           </>
         ) : (
-          <div>
+          <div className="nav__link">
             <button onClick={handleLogin} className="nav__signup-btn">
               Sign in
             </button>
             <img
               className={activeModal ? "nav__menu-img_hidden" : "nav__menu-img"}
               src={menu}
+              alt="Menu icon"
               onClick={handleMenuClick}
             />
           </div>

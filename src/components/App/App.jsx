@@ -183,7 +183,7 @@ function App() {
   return (
     <div className="app">
       <CurrentUserContext.Provider value={currentUser}>
-        <div className="app__content">
+        <main className="app__content">
           <Routes>
             <Route
               path="/"
@@ -259,7 +259,7 @@ function App() {
             />
           )}
           <Footer />
-        </div>
+        </main>
       </CurrentUserContext.Provider>
     </div>
   );

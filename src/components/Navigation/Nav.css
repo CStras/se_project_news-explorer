@@ -80,7 +80,7 @@
     padding: 12px 15px 12px 19px;
     background: none;
     color: rgba(26, 27, 34, 1);
-    border: solid 1px rgba(26, 27, 34, 1);
+    border: solid 1px rgba(209, 210, 214, 1);
     height: 48px;
     border-radius: 100px;
     font-family: "Roboto Meduim";
@@ -100,12 +100,72 @@
     background-image: none;
 }
 
+@media screen and (max-width: 900px) {
+    .nav__content {
+        padding: 14px 40px 0 
+    }
+}
+
 @media screen and (max-width: 768px) {
     .nav__content {
-        padding: 14px 40px 0;
+        padding: 14px 40px 0 40px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .nav__profile-btn {
+        display: none;
+    }
+
+    .nav__links {
+        gap: 16px;
+    }
+
+    .nav__home-btn_saved {
+        display: block;
+        font-size: 16px;
+        padding: 14px 10px 17px;
+    }
+
+    .nav__home-btn {
+        display: none;
+    }
+
+    .nav_profile-btn_saved {
+        display: flex;
+        width: 150px;
+        height: 40px;
+    }
+
+    .nav__profile-btn_text {
+        font-size: 16px;
+    }
+
+    .nav__signup-btn {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .nav__content {
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav__signup-btn {
+        display: none;
+    }
+
+    .nav__menu-img {
+        display: block;
+        background: transparent;
+        width: 24px;
+        height: 24px;
+        border: none;
     }
 
     .nav__profile-btn {
@@ -116,19 +176,7 @@
         display: none;
     }
 
-    .nav__home-btn {
-        display: none;
-    }
-
     .nav_profile-btn_saved {
-        display: none;
-    }
-
-    .nav__menu-img {
-        display: block;
-    }
-
-    .nav__signup-btn {
         display: none;
     }
 }
@@ -136,6 +184,10 @@
 @media screen and (max-width: 320px) {
     .nav__home-btn {
         display: none;
+    }
+
+    .nav__links {
+        gap: 0;
     }
     
     .nav__logo {

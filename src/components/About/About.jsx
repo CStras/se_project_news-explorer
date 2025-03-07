@@ -3,9 +3,9 @@ import about from "../../assets/aboutPic.jpg";
 
 function About() {
   return (
-    <div className="about">
+    <section className="about">
       <div className="about__image-container">
-        <img className="about__image" src={about} />
+        <img className="about__image" src={about} alt="Author image" />
       </div>
       <div className="about__content">
         <h2 className="about__title">About the author</h2>
@@ -32,7 +32,7 @@ function About() {
           valuable asset to any team I am a part of.
         </p>
       </div>
-    </div>
+    </section>
   );
 }
 

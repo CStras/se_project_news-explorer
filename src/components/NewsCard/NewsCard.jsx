@@ -51,25 +51,25 @@ function NewsCard({
   return (
     <div className="news-card__container">
       <div className="news-card__image_container">
-        {location.pathname === "/saved-news" && (
-          <div className="news-card__keyword-icon">{newsItem.keyword}</div>
+        {window.location.hash === "#/saved-news" && (
+          <span className="news-card__keyword-icon">{newsItem.keyword}</span>
         )}
         <div className="news-card__button-container">
-          {!isLoggedIn && location.pathname === "/" && (
+          {!isLoggedIn && window.location.hash === "#/" && (
             <div className="news-card__sign-in-note">
               Sign in to save articles
             </div>
           )}
-          {location.pathname === "/saved-news" && (
-            <div className="news-card__sign-in-note">Removed from saved</div>
+          {window.location.hash === "#/saved-news" && (
+            <div className="news-card__sign-in-note">Remove from saved</div>
           )}
-          {location.pathname === "/" && (
+          {window.location.hash === "#/" && (
             <button
               className={isSaved ? "news-card__save_active" : "news-card__save"}
               onClick={!isLoggedIn ? setLoginModal : handleSaveClick}
             ></button>
           )}
-          {location.pathname === "/saved-news" && (
+          {window.location.hash === "#/saved-news" && (
             <button
               className="news-card__delete"
               onClick={handleDeleteClick}
@@ -88,7 +88,7 @@ function NewsCard({
           <h2 className="news-card__title">{newsItem.title}</h2>
         </Link>
         <p className="news-card__text">
-          {location.pathname === "/"
+          {window.location.hash === "#/"
             ? newsItem.description
             : newsItem.description}
         </p>

@@ -26,14 +26,14 @@ function Footer() {
             target="_blank"
             href="https://github.com/CStras"
           >
-            <img src={github} className="footer__icon" />
+            <img src={github} className="footer__icon" alt="Github icon" />
           </a>
           <a
             className="footer__link"
             target="_blank"
             href="https://www.linkedin.com/in/colin-strasser-5870822a9/"
           >
-            <img src={linkedin} className="footer__icon" />
+            <img src={linkedin} className="footer__icon" alt="LinkedIn icon" />
           </a>
         </div>
       </div>

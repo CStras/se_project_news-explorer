@@ -38,7 +38,7 @@ function NewsCardList({
     >
       <h2
         className={
-          location.pathname === "/"
+          window.location.hash === "#/"
             ? "news-cards-list__title"
             : "news-cards-list__title_hidden"
         }
