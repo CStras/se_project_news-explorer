@@ -6,7 +6,7 @@
 }
 
 .nav__logo {
-    font-family: "Roboto-slab Bold";
+    font-family: "Roboto-slab Bold", Arial, Helvetica, sans-serif;
     font-size: 20px;
     line-height: 24px;
     margin: 0;
@@ -22,7 +22,7 @@
     color: rgba(255, 255, 255, 1);
     text-decoration: none;
     padding: 0 10px 23px;
-    font-family: "Roboto Meduim";
+    font-family: "Roboto Meduim", Arial, Helvetica, sans-serif;
     font-size: 18px;
     line-height: 24px;
 }
@@ -31,7 +31,7 @@
     color: rgba(26, 27, 34, 1);
     text-decoration: none;
     padding: 0 10px 23px;
-    font-family: "Roboto Meduim";
+    font-family: "Roboto Meduim", Arial, Helvetica, sans-serif;
     font-size: 18px;
     line-height: 24px;
 }
@@ -43,6 +43,7 @@
 .nav__saved-btn_focused {
     border-bottom: 3px solid rgba(26, 27, 34, 1);
     color: rgba(26, 27, 34, 1);
+    text-align: center;
 }
 
 .nav__signup-btn {
@@ -53,7 +54,7 @@
     width: 176px;
     height: 48px;
     border-radius: 100px;
-    font-family: "Roboto Meduim";
+    font-family: "Roboto Meduim", Arial, Helvetica, sans-serif;
     font-size: 18px;
     line-height: 24px;
 }
@@ -65,7 +66,7 @@
     border: solid 1px rgba(255, 255, 255, 1);
     height: 48px;
     border-radius: 100px;
-    font-family: "Roboto Meduim";
+    font-family: "Roboto Meduim", Arial, Helvetica, sans-serif;
     font-size: 18px;
     line-height: 24px;
     display: flex;
@@ -76,14 +77,14 @@
     margin-right: 15px;
 }
 
-.nav_profile-btn_saved {
+.nav__profile-btn_saved {
     padding: 12px 15px 12px 19px;
     background: none;
     color: rgba(26, 27, 34, 1);
     border: solid 1px rgba(209, 210, 214, 1);
     height: 48px;
     border-radius: 100px;
-    font-family: "Roboto Meduim";
+    font-family: "Roboto Meduim", Arial, Helvetica, sans-serif;
     font-size: 18px;
     line-height: 24px;
     display: flex;
@@ -107,6 +108,9 @@
 }
 
 @media screen and (max-width: 768px) {
+
+
+
     .nav__content {
         padding: 14px 40px 0 40px;
         display: flex;
@@ -128,22 +132,20 @@
         padding: 14px 10px 17px;
     }
 
-    .nav__home-btn {
-        display: none;
-    }
-
-    .nav_profile-btn_saved {
+    .nav__profile-btn_saved {
         display: flex;
         width: 150px;
-        height: 40px;
+        max-height: 40px;
     }
 
     .nav__profile-btn_text {
         font-size: 16px;
+        line-height: 16px;
     }
 
     .nav__signup-btn {
-        display: none;
+        width: 152px;
+        height: 40px;
     }
 }
 
@@ -176,7 +178,11 @@
         display: none;
     }
 
-    .nav_profile-btn_saved {
+    .nav__home-btn {
+        display: none;
+    }
+
+    .nav__profile-btn_saved {
         display: none;
     }
 }
@@ -191,7 +197,7 @@
     }
     
     .nav__logo {
-        font-family: "Roboto-slab Bold";
+        font-family: "Roboto-slab Bold", Arial, Helvetica, sans-serif;
         font-size: 16px;
         line-height: 24px;
         margin: 0;
@@ -225,7 +231,7 @@
         display: none;
     }
 
-    .nav_profile-btn_saved {
+    .nav__profile-btn_saved {
         display: none;
     }
 }

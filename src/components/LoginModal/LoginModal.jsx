@@ -43,15 +43,16 @@ const LoginModal = ({
           value={values.email || ""}
           required
         />
+        <span
+          className={`modal__input-error ${
+            errors.email ? "modal__input-error_visible" : ""
+          }`}
+          id="email-error"
+        >
+          Invalid email address
+        </span>
       </label>
-      <span
-        className={`modal__input-error ${
-          errors.email ? "modal__input-error_visible" : ""
-        }`}
-        id="email-error"
-      >
-        Invalid email address
-      </span>
+
       <label className="modal__label" htmlFor="password">
         Password
         <input
@@ -65,15 +66,15 @@ const LoginModal = ({
           value={values.password || ""}
           required
         />
+        <span
+          className={`modal__input-error ${
+            errors.password ? "modal__input-error_visible" : ""
+          }`}
+          id="password-error"
+        >
+          {errors.password}
+        </span>
       </label>
-      <span
-        className={`modal__input-error ${
-          errors.password ? "modal__input-error_visible" : ""
-        }`}
-        id="password-error"
-      >
-        {errors.password}
-      </span>
     </ModalWithForm>
   );
 };

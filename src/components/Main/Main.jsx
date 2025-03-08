@@ -20,17 +20,7 @@ function Main({
   handleMenuClick,
 }) {
   return (
-    <div className="main__content">
-      <Header
-        handleLogin={handleLogin}
-        isLoggedIn={isLoggedIn}
-        handleSearch={handleSearch}
-        setCurrentKeyword={setCurrentKeyword}
-        handleLogout={handleLogout}
-        activeModal={activeModal}
-        setActiveModal={setActiveModal}
-        handleMenuClick={handleMenuClick}
-      />
+    <main className="main__content">
       <NewsCardList
         newsData={newsData}
         isSuccessNewsData={isSuccessNewsData}
@@ -43,7 +33,7 @@ function Main({
         currentKeyword={currentKeyword}
       />
       <About />
-    </div>
+    </main>
   );
 }
 

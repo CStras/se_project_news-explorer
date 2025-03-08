@@ -1,6 +1,6 @@
 .complete-modal__link {
     font-size: 18px;
-    font-family: "Inter Reg";
+    font-family: "Inter Reg", Arial, Helvetica, sans-serif;
     margin-top: 30px;
     color: rgba(47, 113, 229, 1);
     background: none;

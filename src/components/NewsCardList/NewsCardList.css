@@ -28,7 +28,7 @@
   }
 
   .news-cards-list__not-found-title {
-    font-family: "Roboto-Slab-reg";
+    font-family: "Roboto-Slab-reg", Arial, Helvetica, sans-serif;
     font-size: 26px;
     font-weight: 400;
     line-height: 30px;
@@ -39,7 +39,7 @@
   
   .news-cards-list__not-found-text {
     padding-top: 16px;
-    font-family: "Roboto";
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;
@@ -60,7 +60,7 @@
   }
 
   .preloader__text {
-    font-family: "Roboto Reg";
+    font-family: "Roboto Reg", Arial, Helvetica, sans-serif;
     font-size: 18px;
     line-height: 24px;
     text-align: center;
@@ -75,7 +75,7 @@
     height: 64px;
     width: 288px;
     border-radius: 80px;
-    font-family: "Roboto Meduim";
+    font-family: "Roboto Meduim", Arial, Helvetica, sans-serif;
     font-size: 18px;
     font-weight: 500;
     line-height: 24px;
@@ -86,11 +86,16 @@
     color: #1a1b22;
   }
 
+  .news-cards-list__more-button:hover {
+    background: rgba(232, 232, 232, 1);
+
+  }
+
   .news-cards-list__title {
     margin: 0 0 64px 0;
     padding-left: 104px;
     padding-top: 80px;
-    font-family: "Roboto-Slab-reg";
+    font-family: "Roboto-Slab-reg", Arial, Helvetica, sans-serif;
     font-size: 40px;
     font-weight: 400;
     line-height: 46px;
@@ -145,7 +150,7 @@
       margin: 0;
       padding-left: 40px;
       padding-top: 40px;
-      font-family: "Roboto-Slab-reg";
+      font-family: "Roboto-Slab-reg", Arial, Helvetica, sans-serif;
       font-size: 30px;
       font-weight: 400;
       line-height: 34px;
@@ -158,7 +163,7 @@
       height: 56px;
       width: 240px;
       border-radius: 80px;
-      font-family: "Roboto Meduim";
+      font-family: "Roboto Meduim", Arial, Helvetica, sans-serif;
       font-size: 18px;
       font-weight: 500;
       line-height: 24px;
@@ -175,7 +180,7 @@
       margin: 0;
       padding-left: 16px;
       padding-top: 32px;
-      font-family: "Roboto-Slab-reg";
+      font-family: "Roboto-Slab-reg", Arial, Helvetica, sans-serif;
       font-size: 30px;
       font-weight: 400;
       line-height: 34px;

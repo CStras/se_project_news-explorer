@@ -49,7 +49,7 @@ function NewsCard({
   }); */
 
   return (
-    <div className="news-card__container">
+    <article className="news-card__container">
       <div className="news-card__image_container">
         {window.location.hash === "#/saved-news" && (
           <span className="news-card__keyword-icon">{newsItem.keyword}</span>
@@ -94,7 +94,7 @@ function NewsCard({
         </p>
         <p className="news-card__source">{source}</p>
       </div>
-    </div>
+    </article>
   );
 }
 

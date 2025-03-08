@@ -5,7 +5,11 @@ function About() {
   return (
     <section className="about">
       <div className="about__image-container">
-        <img className="about__image" src={about} alt="Author image" />
+        <img
+          className="about__image"
+          src={about}
+          alt="Author image of Colin Strasser"
+        />
       </div>
       <div className="about__content">
         <h2 className="about__title">About the author</h2>

@@ -14,7 +14,7 @@ function Nav({
   activeModal,
   handleMenuClick,
 }) {
-  //console.log(window.location.hash);
+  console.log(window.location.hash);
   const { username } = useContext(CurrentUserContext);
   return (
     <nav className="nav__content">
@@ -23,9 +23,9 @@ function Nav({
         <div className="nav__link">
           <Link
             className={
-              window.location.hash === "#/"
-                ? "nav__home-btn nav__btn_focused"
-                : "nav__home-btn_saved"
+              window.location.hash === "#/saved-news"
+                ? "nav__home-btn_saved"
+                : "nav__home-btn nav__btn_focused"
             }
             to="/"
           >
@@ -50,7 +50,7 @@ function Nav({
               onClick={isLoggedIn ? handleLogout : handleLogin}
               className={
                 window.location.hash === "#/saved-news"
-                  ? "nav_profile-btn_saved"
+                  ? "nav__profile-btn_saved"
                   : "nav__profile-btn"
               }
             >
@@ -59,13 +59,15 @@ function Nav({
               </span>
               <img
                 className="nav__profile-img"
-                src={window.location.hash === "#/" ? logoutWhite : logout}
+                src={
+                  window.location.hash === "#/saved-news" ? logout : logoutWhite
+                }
                 alt="Login/Logout icon"
               />
             </button>
             <img
               className={activeModal ? "nav__menu-img_hidden" : "nav__menu-img"}
-              src={window.location.hash === "/" ? menu : menuDark}
+              src={window.location.hash === "#/saved-news" ? menuDark : menu}
               onClick={handleMenuClick}
               alt="Menu icon"
             />

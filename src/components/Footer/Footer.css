@@ -7,7 +7,7 @@
 
 .footer__copyright {
     margin: 0;
-    font-family: "Roboto Reg";
+    font-family: "Roboto Reg", Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 22px;
     color: rgba(182, 188, 191, 1);
@@ -27,7 +27,7 @@
 .footer__link {
     text-decoration: none;
     color: rgba(26, 27, 34, 11);
-    font-family: "Roboto Reg";
+    font-family: "Roboto Reg", Arial, Helvetica, sans-serif;
     font-size: 18px;
     line-height: 24px;
 }
@@ -62,7 +62,7 @@
     .footer__nav-links {
         display: flex;
         flex-direction: row;
-        font-family: "Roboto Reg";
+        font-family: "Roboto Reg", Arial, Helvetica, sans-serif;
         font-size: 18px;
         line-height: 48px;
         width: 200px;
@@ -86,7 +86,7 @@
     .footer__nav-links {
         display: flex;
         flex-direction: column;
-        font-family: "Roboto Reg";
+        font-family: "Roboto Reg", Arial, Helvetica, sans-serif;
         font-size: 18px;
         line-height: 48px;
         max-width: 200px;

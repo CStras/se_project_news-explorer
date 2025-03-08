@@ -16,7 +16,7 @@ function SavedNews({
 }) {
   return (
     <>
-      <div className="saved__nav">
+      <nav className="saved__nav">
         <Nav
           isLoggedIn={isLoggedIn}
           handleLogout={handleLogout}
@@ -24,7 +24,7 @@ function SavedNews({
           activeModal={activeModal}
           handleMenuClick={handleMenuClick}
         />
-      </div>
+      </nav>
       <SavedNewsText savedArticles={savedArticles} />
       <SavedArticlesList
         newsData={savedArticles}

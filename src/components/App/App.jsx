@@ -1,5 +1,6 @@
 import "./App.css";
 import Main from "../Main/Main.jsx";
+import Header from "../Header/Header.jsx";
 import Footer from "../Footer/Footer.jsx";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
 import SavedNews from "../SavedNews/SavedNews.jsx";
@@ -183,28 +184,40 @@ function App() {
   return (
     <div className="app">
       <CurrentUserContext.Provider value={currentUser}>
-        <main className="app__content">
+        <div className="app__content">
           <Routes>
             <Route
               path="/"
               element={
-                <Main
-                  handleLogin={handleLoginClick}
-                  isLoggedIn={isLoggedIn}
-                  setCurrentKeyword={setCurrentKeyword}
-                  handleSearch={handleSearch}
-                  newsData={newsData}
-                  isSuccessNewsData={isSuccessNewsData}
-                  isError={isError}
-                  isLoadingNewsData={isLoadingNewsData}
-                  activeModal={activeModal}
-                  setActiveModal={setActiveModal}
-                  handleLogout={handleLogout}
-                  handleSaveArticle={handleSaveArticle}
-                  savedArticles={savedArticles}
-                  currentKeyword={currentKeyword}
-                  handleMenuClick={handleMenuClick}
-                />
+                <>
+                  <Header
+                    handleLogin={handleLoginClick}
+                    isLoggedIn={isLoggedIn}
+                    handleSearch={handleSearch}
+                    setCurrentKeyword={setCurrentKeyword}
+                    handleLogout={handleLogout}
+                    activeModal={activeModal}
+                    setActiveModal={setActiveModal}
+                    handleMenuClick={handleMenuClick}
+                  />
+                  <Main
+                    handleLogin={handleLoginClick}
+                    isLoggedIn={isLoggedIn}
+                    setCurrentKeyword={setCurrentKeyword}
+                    handleSearch={handleSearch}
+                    newsData={newsData}
+                    isSuccessNewsData={isSuccessNewsData}
+                    isError={isError}
+                    isLoadingNewsData={isLoadingNewsData}
+                    activeModal={activeModal}
+                    setActiveModal={setActiveModal}
+                    handleLogout={handleLogout}
+                    handleSaveArticle={handleSaveArticle}
+                    savedArticles={savedArticles}
+                    currentKeyword={currentKeyword}
+                    handleMenuClick={handleMenuClick}
+                  />
+                </>
               }
             />
             <Route
@@ -259,7 +272,7 @@ function App() {
             />
           )}
           <Footer />
-        </main>
+        </div>
       </CurrentUserContext.Provider>
     </div>
   );

@@ -6,7 +6,8 @@
 
 .search__form {
     position: relative;
-    font-family: "Roboto Reg";
+    font-family: "Roboto Reg", Arial, Helvetica, sans-serif;
+    margin: 0 auto;
 }
 
 .search__input {
@@ -53,6 +54,8 @@
     background: rgba(42, 101, 204, 1);
 }
 
+
+
 @media screen and (max-width: 768px) {
     
     .search__input {
@@ -84,6 +87,24 @@
     }
 }
 
+@media screen and (max-width: 500px) {
+    .search__input {
+        max-width: 300px;
+    }
+
+    .search__form {
+        display: flex;
+        position: relative;
+        left: -5px;
+        flex-direction: column;
+        font-family: "Roboto Reg", Arial, Helvetica, sans-serif;
+    }
+
+    .search__button {
+        width: 100px;
+    }
+}
+
 @media screen and (max-width: 320px) { 
 
     .search {
@@ -97,7 +118,7 @@
         position: relative;
         left: -5px;
         flex-direction: column;
-        font-family: "Roboto Reg";
+        font-family: "Roboto Reg", Arial, Helvetica, sans-serif;
     }
 
     .search__input {

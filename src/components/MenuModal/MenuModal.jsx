@@ -9,7 +9,7 @@ function MenuModal({
   handleLogout,
 }) {
   return (
-    <div className={`modal ${isOpen && "modal_open modal_menu"}`}>
+    <div className={`modal ${isOpen && "modal_open modal__menu"}`}>
       <div className="modal__content_menu">
         <h2 className="modal__title_menu">NewsExplorer</h2>
         <button
@@ -26,12 +26,15 @@ function MenuModal({
             <Link className="modal__menu-link" to="/saved-news">
               Saved News
             </Link>
-            <button onClick={handleLogout} className="menu__login-logout">
-              sign out
+            <button onClick={handleLogout} className="modal__menu_login-logout">
+              Sign out
             </button>
           </>
         ) : (
-          <button onClick={handleLoginClick} className="menu__login-logout">
+          <button
+            onClick={handleLoginClick}
+            className="modal__menu_login-logout"
+          >
             Sign in
           </button>
         )}
