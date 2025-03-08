@@ -1,23 +1,16 @@
-import Header from "../Header/Header.jsx";
 import NewsCardList from "../NewsCardList/NewsCardList.jsx";
 import About from "../About/About.jsx";
 
 function Main({
-  handleLogin,
   isLoggedIn,
-  handleSearch,
-  setCurrentKeyword,
   newsData,
   isSuccessNewsData,
   isError,
   isLoadingNewsData,
   setActiveModal,
-  handleLogout,
   handleSaveArticle,
   savedArticles,
   currentKeyword,
-  activeModal,
-  handleMenuClick,
 }) {
   return (
     <main className="main__content">

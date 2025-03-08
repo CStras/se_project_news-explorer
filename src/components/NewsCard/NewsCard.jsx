@@ -1,5 +1,5 @@
 import "./NewsCard.css";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function NewsCard({
@@ -11,8 +11,6 @@ function NewsCard({
 }) {
   const [isSaved, setIsSaved] = useState(newsItem.saved || false);
   //const isLoggedIn = useContext(CurrentUserContext).isLoggedIn;
-
-  const location = useLocation();
 
   const source = newsItem
     ? newsItem.source?.name.toUpperCase().split(".")[0]
