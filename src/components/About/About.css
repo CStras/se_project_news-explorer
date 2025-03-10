@@ -1,0 +1,131 @@
+.about {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 56px;
+    padding: 80px 0;
+    margin: 0 216px 0 104px;
+    max-width: 100%;
+}
+
+.about__content {
+  max-width: 65%;
+}
+
+.about__image-container {
+    max-width: 464px;
+    max-height: 464px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    align-items: flex-start;
+}
+
+.about__image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.about__title {
+    font-family: "Roboto-slab Reg", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 46px;
+    color: rgba(26, 27, 34, 1);
+    margin: 0;
+    width: 100%;
+}
+
+.about__text {
+    margin: 24px 0 0 0;
+    width: 100%;
+    font-family: "Roboto Reg", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    color: rgba(26, 27, 34, 1);
+}
+
+@media screen and (max-width: 1100px) and (min-width: 768px) {
+
+
+    
+      .about__image-container {
+        width: 232px;
+        height: 232px;
+      }
+
+      .about__title {
+        font-size: 30px;
+        line-height: 40px;
+      }
+    
+      .about__text {
+        margin: 12px 0 0 0;
+        font-size: 14px;
+        line-height: 18px;
+      }
+}
+
+@media screen and (max-width: 768px) {
+    .about {
+        display: flex;
+
+        gap: 24px;
+        margin: 0 40px;
+    }
+
+    .about__image-container {
+        width: 232px;
+        height: 232px;
+      }
+
+      .about__title {
+        font-size: 30px;
+        line-height: 40px;
+      }
+    
+      .about__text {
+        margin: 12px 0 0 0;
+        font-size: 14px;
+        line-height: 18px;
+        max-width: 423px;
+      }
+}
+
+@media screen and (max-width: 500px) { 
+  .about {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 16px;
+    margin: 32px 0 0 0;
+    max-width: 100%;
+}
+
+  .about__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .about__title {
+    font-size: 30px;
+    line-height: 40px;
+    max-width: 288px;
+  }
+
+  .about__text {
+    margin: 16px 0 0 0;
+    font-size: 18px;
+    line-height: 24px;
+    max-width: 288px;
+  }
+}
