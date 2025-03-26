@@ -11,4 +11,6 @@ This project centers around using ReactJS, HTML and CSS. The API used in this pr
 
 ## Links
 
+**Note: website can be fully experienced by downloading repo and running "npm run dev" in terminal**
+
 https://cstras.github.io/se_project_news-explorer/
